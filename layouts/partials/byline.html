@@ -1,0 +1,38 @@
+  {{- /* 
+    1. If date is set, show it.
+    2. If author is set, show it.
+    3. If a date is shown, and author is not set, use the site author,
+       because a date without an author looks weird.
+    4. If neither is set, show nothing.
+
+    +========+=====+===============================+==================+
+    |        |     |                Date                              |
+    +========+=====+===============================+==================+
+    |        |     |  Yes (i.e., in front matter)  | No               |
+    +--------+-----+-------------------------------+------------------+
+    |        | Yes | Author                        | Author           |
+    |        |     | Date                          |                  |
+    | Author +-----+-------------------------------+------------------+
+    |        | No  | Site default author           |                  |
+    |        |     | Date                          |                  |
+    +--------+-----+-------------------------------+------------------+  */ -}}
+
+{{ if (or (gt .Params.date 0) (isset .Params "author")) }}
+  <div class="byline">
+    {{ if isset .Params "author" }}
+      {{ .Params.author }}
+    {{ else }}  {{- /* this only happens when date is set and author isn't */ -}}
+      {{ .Site.Params.AuthorName -}}
+    {{- end -}}
+  </div>
+  {{ if (gt .Params.date 0) }}
+    <div class="permalink">
+      <a href="{{- .RelPermalink -}}" title="permalink">
+        {{- .Date.Format "2006 Jan 2" -}}
+      </a>
+      <a href="{{- .RelPermalink -}}" class=" no-under" title="permalink">
+        &nbsp;<img class="icon subicon" src="/Linecons_small-calendar.svg"/>
+      </a>
+    </div>
+  {{ end }}
+{{ end }}

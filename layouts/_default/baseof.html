@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="/sa-brand-identity.css"/>
+  </head>
+  <body>
+    <header>
+      <aside class="headnotes">{{- block "header_headnotes" . -}}
+          {{- partial "prev_short" . -}}
+      {{- end -}}</aside>
+
+      <main>{{- block "header_main" . -}}
+          {{ partial "breadcrumb" . }}
+      {{- end -}}</main>
+
+      <aside class="footnotes">{{- block "header_footnotes" . -}}
+          {{- partial "next_short" . -}}
+      {{- end -}}</aside>
+
+    </header>
+    <main>
+
+      <header>
+        <aside class="headnotes">{{- block "main_header_headnotes" . -}}{{- end -}}</aside>
+
+        <main>{{- block "main_header_main" . -}}
+          {{ partial "byline" . }}
+        {{- end -}}</main>
+
+        <aside class="footnotes">{{- block "main_header_footnotes" . -}}{{- end -}}</aside>
+      </header>
+      <main>
+
+        <aside class="headnotes">{{- block "main_headnotes" . -}}
+          {{ partial "table-of-contents" . }}
+        {{- end -}}</aside>
+
+        <main>{{- block "main" . -}}{{- end -}}</main>
+
+        <aside class="footnotes">{{- block "main_footnotes" . -}}{{- end -}}</aside>
+
+      </main>
+      <footer>
+
+        <aside class="headnotes">{{- block "main_footer_headnotes" . -}}
+          {{- partial "prev" . -}}
+        {{- end -}}</aside>
+
+        <main>{{- block "main_footer_main" . -}}
+          &nbsp;{{ partial "category-tags" . }}
+        {{- end -}}</main>
+
+        <aside class="footnotes">{{- block "main_footer_footnotes" . -}}
+          {{- partial "next" . -}}
+        {{- end -}}</aside>
+
+      </footer>
+    </main>
+    <footer>
+
+      <aside class="headnotes">{{- block "footer_headnotes" . -}}{{- end -}}</aside>
+
+      <main>{{- block "footer_main" . -}}
+        {{- partial "site-footer" . -}}
+      {{- end -}}</main>
+
+      <aside class="footnotes">{{- block "footer_footnotes" . -}}{{- end -}}</aside>
+
+    </footer>
+    </main>
+  </body>
+</html>

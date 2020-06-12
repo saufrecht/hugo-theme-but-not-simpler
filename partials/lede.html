@@ -1,0 +1,22 @@
+<a href="{{ .RelPermalink }}">
+  <div>
+    <span class="title">{{.Title}}</span>
+    <span class="date">{{ .Date.Format "2006-01-02" }} {{ if .Draft }}DRAFT{{- end -}}</span>
+  </div>
+  {{- with .Summary -}}
+    <div class="no-p">{{- . -}}…</div>
+  {{- end }}
+</a>
+
+{{- if .Params.ledepic -}}
+
+    {{- $image := resources.Get .Params.ledepic -}}
+    {{- $show_image := ($image.Resize "75x75") -}}
+    <a href="{{ .RelPermalink }}" class="ledepic">
+      <figure>
+        <img src="{{ $show_image.RelPermalink }}"/>
+      </figure>
+    </a>
+
+{{ end }}
+

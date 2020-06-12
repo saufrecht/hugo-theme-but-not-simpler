@@ -1,0 +1,20 @@
+<ul>
+
+{{ range .Site.Sections }}
+<li>
+  <a href="{{ .Permalink }}">
+    {{ .Title }}
+  </a>
+  <ul>
+  {{ range sort .Pages "Title" }}
+    <li>
+      <a href="{{ .Permalink }}">
+        {{ .Title }}
+      </a>
+    </li>
+  {{ end }}
+  </ul>
+</li>
+{{ end }}
+
+</ul>

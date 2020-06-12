@@ -1,0 +1,6 @@
+{{- /* Hack: junk from an empty ToC is 32 char long 
+presumably there's a better way to make it empty upstream? */ -}}
+
+{{- if gt (len .TableOfContents) 32  -}}
+  {{ .TableOfContents }}
+{{- end -}}

@@ -1,0 +1,1200 @@
+/*———————————————————————————————————————————————————————————*/
+/* Andy Bell Reset                                           */
+/*———————————————————————————————————————————————————————————*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Set core body defaults */
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*———————————————————————————————————————————————————————————*/
+/* Some variables                                            */
+/*———————————————————————————————————————————————————————————*/
+:root {
+    --corner: 0.3rem;
+    --small-corner: 0.2rem;
+    --rowgrid: repeat(auto-fill, 200px);
+    --max-width: 1000px;
+    --bodyspan: span 3;
+}
+
+/*———————————————————————————————————————————————————————————*/
+/* Most of Gruvbox                                           */
+/*———————————————————————————————————————————————————————————*/
+:root {
+  --dark-0h:     #1d2021; /* bg0_h */
+  --dark-0:      #282828; /* bg0   */
+  --dark-0s:     #32302f; /* bg0_s */
+  --light-4:     #a89984; /* fg4   */
+  --light-3:     #bdae93; /* fg3   */
+  --light-2:     #d5c4a1; /* fg2   */
+  --light-1:     #ebdbb2; /* fg1   */
+  --light-0:     #fbf1c7; /* fg0   */
+  --light-0h:    #f9f5d7; /* bg0_h light mode */
+  --light-0s:    #f2e5bc; /* bg0_s light mode */
+  --red-−1:      #9d0006; /* red 3nd row; note that second dash is actually a negative sign */
+  --red-0:       #cc241d; /* red 1st row */
+  --red-1:       #fb4934; /* red 2nd row */
+  --yellow-0:    #d79921; /* yellow 1st row */
+  --yellow-1:    #fabd2f; /* yellow 2nd row */
+  --green-0:     #98971a; /* green 1st row */
+  --green-1:     #b8bb26; /* green 2nd row */
+  --gray-0:      #a89984; /* gray */
+  --gray-1:      #928374; /* other gray */
+  --purple-0:    #b16286; /* purple 1st row */
+  --purple-1:    #d3869b; /* purple 2nd row */
+  --orange-0:    #d65d0e; /* orange 1st row */
+  --orange-1:    #fe8019; /* orange 2nd row */
+  --blue-0:      #458488; /* blue 1st row */
+  --blue-1:      #83a598; /* blue 2nd row */
+}
+
+/*———————————————————————————————————————————————————————————*/
+/* Solarized */
+/*———————————————————————————————————————————————————————————*/
+:root {
+  --lightest:       #fdf6e3; /* Base3  */
+  --light:          #eee8d5; /* Base2  */
+  --dark-lightest:  #93a1a1; /* Base1  */
+  --dark-lighterer: #839496; /* Base0  */
+  --dark-lighter:   #657b83; /* Base00 */
+  --dark-light:     #586e75; /* Base01 */
+  --dark:           #073642; /* Base02 */
+  --darkest:        #002b36; /* Base03 */
+  --yellow:         #b58900;
+  --green:          #859900;
+  --gray:           #e1e1e1;
+  --magenta:        #d33682;
+  --violet:         #6c71c4;
+  --cyan:           #2aa198;
+  --orange:         #cb4b16;
+  --red:            #dc322f;
+}
+
+/*———————————————————————————————————————————————————————————*/
+/* Other colors                                              */
+/*———————————————————————————————————————————————————————————*/
+
+:root {
+    --default-link:         #0000ee;
+    --default-link-visited: #551a8b;
+    --light-link:           #369be2;
+    --light-link-faint:     rgba(54, 154, 226, 0.4);
+    --light-link-visited:   rgba(133, 106, 203, 0.4);
+    --dark-link-faint:       rgba(83, 84, 150, 0.4);
+    --dark-link:            #535496;
+    --dark-link-visited:    #535476;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg:     var(--lightest);         /* body background */
+        --fg:     var(--dark-light);
+        --svgfilter: invert(39%) sepia(24%) saturate(336%) hue-rotate(148deg) brightness(98%) contrast(86%);
+        --fg-more:  var(--dark);
+        --fg-most: var(--darkest);
+        --fg-less: var(--dark-lighter);
+        --fg-link:  var(--light-link-faint);
+        --fg-link-acc:  var(--light-link);
+        --fg-link-visited: var(--light-link-visited);
+        --body-shadow: 0.1em 0.2em 0.3em rgba(0, 0, 0, 0.3), 0.2em 0.3em 0.3em 0 rgba(0, 0, 0, 0.28);
+        --box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.2), 0.1em 0.2em .4em 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg:      var(--darkest);
+        --fg:      var(--dark-lightest);
+        --svgfilter: invert(64%) sepia(18%) saturate(151%) hue-rotate(131deg) brightness(96%) contrast(89%);
+        --fg-more:   var(--light);
+        --fg-most:  var(--lightest);
+        --fg-less:  var(--dark-light);
+        --fg-link:  var(--dark-link-faint);
+        --fg-link-acc:  var(--dark-link);
+        --fg-link-visited: var(--dark-link-visited);
+        --body-shadow: none;
+        --box-shadow: none;
+    }
+}
+
+
+/*———————————————————————————————————————————————————————————*/
+/* Fonts                                                     */
+/*———————————————————————————————————————————————————————————*/
+
+@font-face {
+    font-family: 'Museo';
+    src: url('fonts/MuseoSansCyrl_500.woff2') format('woff2'),
+         url('fonts/MuseoSansCyrl-500.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatOT';
+    src: url('fonts/QuadraatOT.woff2') format('woff2'),
+         url('fonts/QuadraatOT.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatOT';
+    src: url('fonts/1f717086-8b2b-4a8f-ae95-ecf1bc4b3acb.woff2') format('woff'),
+         url('fonts/78c9b52f-4d1a-44ea-9c6b-d1855e505ce8.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatSansOT';
+    src: url('fonts/QuadraatSansOT.woff') format('woff'),
+         url('fonts/QuadraatSansOT.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatSansMonoOT';
+    src: url('fonts/QuadraatSansMonoOT.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+footer, header, h1, h2, h3, nav, table, figcaption, .headnotes, .footnotes, .title {
+    font-family: QuadraatSansOT, Museo, sans-serif;
+}
+
+body {
+    font-family: QuadraatOT, serif;
+}
+
+code, pre, .screenplay, .date {
+    font-family: QuadraatSansMonoOT, Lucido Console, Monaco, monospace;
+}
+
+
+/* Spacing around and between paragraphs */
+main > p:first-of-type {
+    padding-top: 0;
+}
+
+body > main > main > main > p {
+    margin-bottom: 1rem;
+}
+
+.screenplay {
+    white-space: pre;
+}
+
+/* another hanging indent
+p {
+        margin: 6em inital;
+}
+*/
+
+
+/* -------------------------------------------------------------------- */
+/* Better Defaults for assorted things */
+
+a {
+    text-decoration: underline;
+    font-variant-numeric: lining-nums;
+    color: inherit;
+    text-decoration-thickness: 0.01rem;
+    text-decoration-color: var(--fg-link);
+}
+
+a:visited {
+    color: var(--fg);
+    text-decoration-color: var(--fg-link-visited);
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-decoration-color: var(--fg-link-acc);
+    color: var(--fg-more);
+}
+
+table a {
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
+.mono-nums {
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
+.stack-frac {
+    font-variant-numeric: stacked-fractions;
+}
+
+sup {
+    font-size: 0.8rem;
+    vertical-align: super;
+    line-height: 0;
+}
+
+/* -------------------------------------------------------------------- */
+/* Hugo- and Markdown-specific */
+
+dt {
+    margin-top: 1.3rem;
+}
+
+dd {
+    margin-left: 2rem;
+    margin-top: 0.1rem;
+}
+
+
+#fp-list li {
+    list-style-type: none;
+    line-height: 2rem;
+    text-indent: 2rem hanging;
+}
+
+.date {
+    font-weight: 200;
+    font-size: 0.8rem;
+    
+}
+
+.permalink {
+    font-weight: 200;
+    align-items: center;
+}
+
+.permalink img {
+    display: inline;
+}
+
+.permalink a {
+    color: var(--dark-lighterer);
+}
+
+.credit {
+    text-align: right;
+
+}
+/* -------------------------------------------------------------------- */
+/* Theme and Template-specific */
+
+/* In order for headnotes and footnotes to work in both wide and
+   narrow screens, all grids fit directly onto the page (body), with
+   no smaller containers in-between.  All grids are defined the same
+   way, with rules that provide autofill 200px columns and unlimited
+   rows. 
+
+   The page comprises a flex column of rows.  Each row is a grid so that,
+   when the grid layout collapses on narrower screens, the order of elements 
+   is preserved.  Maximum grid on any screen should be five columns wide,
+   with the body getting five columns and the asides one column each.
+   There's a reason why each row is its own grid, instead of the whole
+   page being one grid, but I forgot what it is.
+
+  A1   A2   A2   A2   A3
+  
+  B1   B2   B2   B2   B3
+
+  C1   C2   C2   C2   C3
+
+turns into
+
+  A1
+
+  A2
+
+  A3
+
+  B1
+
+  B2
+
+  B3
+
+  C1
+
+  C2
+
+  C3
+
+*/
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures contextual historical-ligatures;
+    font-size: 1.2rem;
+    height: 100vh;
+    line-height: 1.6rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------------------------------------- */
+/* Body Header */
+
+body > header {
+    display: grid;
+    grid-template-columns: var(--rowgrid);
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+body > header > main {
+    color: var(--fg-most);
+    padding: 0.5rem;
+    grid-column-end: var(--bodyspan);
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0rem;
+    padding: 1rem;
+}
+
+body > header > main > .homepage-title {
+    display: flex;
+    align-items: center;
+}
+
+body > header > main > .homepage-title > h1 {
+    flex: 1;
+}
+
+body > header > main figure {
+    margin: 0;
+}
+
+body > header a {
+    color: var(--fg-most);
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link);
+}
+
+body > header a:visited {
+    text-decoration-color: var(--fg-link-visited);
+}
+
+body > header > aside {
+    width: 100%;
+    height: 100%;
+}
+
+aside > nav {
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+aside > nav > a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height; 1.1rem;
+    color: var(--fg-less);
+}
+
+/* -------------------------------------------------------------------- */
+/* Main thing ( body > main ) */
+/* -------------------------------------------------------------------- */
+/* Main itself is a 3×3 grid, with header, main, and footer rows,
+ and each row having a headnote aside, main, and footnote aside */ 
+
+body > main {
+    display: contents;
+}
+
+/* -------------------------------------------------------------------- */
+/* Main thing header
+/* -------------------------------------------------------------------- */
+/* If empty, should not have any impact on formatting. */
+
+body > main > header {
+    display: grid;
+    grid-template-columns: var(--rowgrid);
+}
+
+body > main > header > main {
+    grid-column-end: var(--bodyspan);
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+body > main > header > main:empty {
+    display: none;
+}
+
+/* -------------------------------------------------------------------- */
+/* Main thing's main row ( body > main > main ) */
+/* -------------------------------------------------------------------- */
+
+body > main > main {
+    display: grid;
+    grid-template-columns: var(--rowgrid);
+    align-content: start;
+}
+
+/* -------------------------------------------------------------------- */
+/* Main thing's main row's main part */
+/* -------------------------------------------------------------------- */
+
+body > main > main > main {
+    grid-column-end: var(--bodyspan);
+    max-width: 100vw;
+    align-self: stretch;
+}
+
+/* -------------------------------------------------------------------- */
+/* Main thing's footer row */
+/* -------------------------------------------------------------------- */
+
+body > main > footer {
+    display: grid;
+    grid-template-columns: var(--rowgrid);
+    align-items: center;
+}
+
+body > main > footer > main:empty {
+    display: none;
+}
+
+body > main > footer > main {
+    grid-column-end: var(--bodyspan);
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    line-height: 1.1rem;
+    margin-top: 0rem;
+    padding: 1rem;
+}
+
+body > main > footer > main > * {
+    flex: 1 1 0;
+}
+
+body > main > footer > main > nav {
+    display: flex;
+    align-items: center;
+}
+
+.prev > * {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.next > * {
+    display: flex;
+    justify-content: flex-end;
+    text-align: end;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Body Footer */
+
+body > footer {
+    flex: 1 1 auto;
+    align-content: end;
+    display: grid;
+    grid-template-columns: var(--rowgrid);
+}
+
+body > footer > main {
+    display: flex;
+    flex-direction: column;
+    color: var(--fg-most);
+    padding: 0.5rem;
+    grid-column-end: var(--bodyspan);
+    max-width: 100vw;
+}
+
+body > footer a {
+    color: var(--fg-most);
+    text-decoration: underline;
+    text-decoration-thickness: 0.02rem;
+    text-decoration-color: var(--fg-link);
+}
+
+body > footer a:visited {
+    color: var(--fg-most);
+    text-decoration: underline;
+    text-decoration-thickness: 0.02rem;
+    text-decoration-color: var(--fg-link-visited);
+}
+
+body .foot-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+div.copyright {
+    color: var(--fg);
+    padding: 0.5rem;
+}
+
+div.copyright > a {
+    color: var(--fg);
+}
+
+.copyright * {
+    display: inline;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Theme-specific formatting tools */
+/* -------------------------------------------------------------------- */
+
+h1 {
+    color: var(--fg-more)!important;
+    font-size: 1.8rem;
+    vertical-align: text-top;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+h1 > a {
+    text-decoration: none!important;
+}
+
+h1 > a:hover {
+    text-decoration: underline!important;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc)!important;
+}
+
+h2 {
+    font-size: 1.5rem;
+    align-self: center;
+    margin-bottom: 1.5rem;
+}
+
+h2 > a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05rem;
+    text-decoration-color: var(--fg-link);
+}
+
+h2 > a:visited {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05rem;
+    text-decoration-color: var(--fg-link-visited);
+}
+
+h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+header > h3:first-child {
+    padding-top: .8rem;
+}
+
+h3 > a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05rem;
+    text-decoration-color: var(--fg-link);
+}
+
+h3 > a:visited {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05rem;
+    text-decoration-color: var(--fg-link-visited);
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+h4 > a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 0.01rem;
+    text-decoration-color: var(--fg-link);
+}
+
+h4 > a:visited {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 0.01rem;
+    text-decoration-color: var(--fg-link-visited);
+}
+
+ul.toc li {
+    margin-left: 1rem;
+}
+
+ul.menu {
+    margin: 0;
+}
+
+div.no-p {
+    padding-left: 2rem;
+}
+
+div.no-p > p {
+    display: contents;
+}
+
+div.no-p > figure {
+    float: right;
+}
+
+.arrow {
+    flex: 1;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+
+.title {
+    font-weight: 700;
+}
+
+.article-title {
+    font-size: 1.2rem;
+}
+
+.draft {
+    border: 2px solid var(--yellow);
+
+}
+
+.lining {
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.valign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.normal {
+    font-style: normal;
+}
+
+.no-under {
+    text-decoration: none;
+}
+
+.breadcrumb {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.breadcrumb p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Code, Blockquote, Pre */
+
+
+.attrib {
+    font-style: normal;
+    text-align: right;
+    width: 100%;
+}
+
+.taxonomy > main > table {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.taxonomy > main > table {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+blockquote {
+    border-left: 0.5rem solid var(--dark-lighterer);
+    padding: 0.5rem!important;
+    box-shadow: var(--box-shadow);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem; /* necessary so that the shadow doesn't get chopped up.  Maybe can remove it if all margin-tops are set? */
+    padding-bottom: 0.5rem;
+}
+
+
+code pre {
+    line-height: 1.6rem;
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+    overflow: hidden;
+}
+
+pre {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--small-corner);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: none;
+}
+
+pre.shell {
+    background: var(--fg-more)!important;
+}
+
+pre.shell p {
+    margin: 0;
+}
+
+pre.shell *:before {
+    content: "$ ";
+}
+
+/* Headnotes */
+
+/* Empty headnotes can't be display:none because that will break
+   the grid alignment.  */
+
+.headnotes:empty{
+    opacity: 0;
+    z-index: -1;
+    line-height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.headnotes {
+    align-self: start;
+    font-size: 1.05rem;
+    color: var(--fg-less);
+    line-height: 1.15rem;
+    margin: 0rem;
+    margin-right: 1.5rem;
+    padding: 0.5rem;
+}
+
+.headnotes h4 {
+    color: inherit;
+}
+
+.headnotes > ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-inline-start: 0rem;
+}
+
+.headnotes ul li {
+    list-style: none;
+    padding-top: 1.5rem;
+    color: var(--fg);
+}
+
+.headnotes > ul li:first-child {
+    padding-top: 0.5rem;
+}
+
+.headnotes  ul li ul {
+    padding-inline-start: 1.1rem;
+}
+
+.headnotes  ul li ul li {
+    font-size: 1rem;
+    padding-top: 0.3rem;
+    margin-bottom: 0;
+}
+
+/* Block an unwanted element of the markdown output */
+.headnotes hr {
+    display: none;
+}
+
+.headnotes a {
+    color: var(--fg-less);
+    text-decoration-thickness: 0.01rem;
+    text-decoration-color: var(--fg-link);
+}
+
+.headnotes a:hover {
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc);
+    color: var(--fg-more);
+}
+
+
+footer .tags {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.tags > a {
+    border-radius: var(--small-corner);
+    background-color: var(--light);
+    margin: 2px;
+    padding: 3px;
+    text-decoration: none;
+}
+
+/* Footnotes */
+
+.footnotes {
+    align-self: start;
+    color: var(--fg-less);
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    margin: 0.5rem;
+    margin-left: 1.5rem;
+    padding: 0.2rem;
+    padding-left: 0.7rem;
+}
+
+.footnotes:empty {
+    display: none;
+}
+
+.footnotes ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-inline-start: 1rem;
+    padding-top: 0.5rem;
+}
+
+.footnotes > ol > li {
+    padding-top: 1rem;
+}
+
+.footnotes > ol > li:first-child {
+    padding-top: 0;
+}
+
+/* Block an unwanted element of the markdown output */
+.footnotes hr {
+    display: none;
+}
+
+.footnotes a:hover {
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc);
+    color: var(--fg-more);
+}
+
+a.footnote-ref {
+    font-weight: 700;
+    color: var(--green);
+    text-decoration: none;
+}
+
+a.footnote-ref:hover {
+    font-weight: 700;
+    color: var(--orange);
+}
+
+.footnotes a.footnote-ref {
+    font-weight: inherit;
+    font-size: 0.6rem;
+}
+
+
+li.footfoot {
+    list-style: none;
+}
+
+li.footfoot > ol {
+    margin-top: 2rem;
+    list-style-type: hebrew;
+}
+
+.footnote-backref {
+    opacity: 60%;
+    padding-left: 0.3rem;
+    text-decoration: none;
+}
+
+.blog-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.blog-title > a {
+    text-decoration: underline;
+    text-decoration-thickness: 0.01rem;
+    text-decoration-color: var(--fg-link);
+    font-size: 1.2rem;
+}
+
+.blog-title > a:visited {
+    text-decoration: underline;
+    text-decoration-thickness: 0.01rem;
+    text-decoration-color: var(--fg-link-visited);
+    font-size: 1.2rem;
+}
+
+/* -------------------------------------------------------------------- */
+/* Images */
+
+.thumbnails {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    width: 100%;
+    grid-gap: 0rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.thumbnails .twocol {
+    grid-column-end: span 2;
+    max-width: 100vw;
+}
+
+.thumbnails .tworow {
+    grid-row-end: span 2;
+    max-width: 100vw;
+}
+
+figure {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+figure > figcaption {
+    flex-grow: 1;
+    padding-top: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+figure a {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+figure img {
+    box-shadow: var(--body-shadow);
+}
+
+
+img.icon {
+    vertical-align: text-bottom;
+    max-height: 1.5rem;
+    display: inline;
+}
+
+img.subicon {
+    filter: var(--svgfilter);
+    height: 16px;
+    padding-top: 0;
+    padding-bottom: 4px;
+}
+
+/* -------------------------------------------------------------------- */
+/* Tables */
+
+table {
+    font-variant-numeric: lining-nums tabular-nums;
+    border: none;
+    text-align: left;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    border-radius: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr {
+    line-height: 2rem;
+}
+
+table.index td:first-child {
+    padding-right: 1rem;
+}
+
+table .num {
+    text-align: right;
+}
+
+th {
+    font-weight: normal;
+}
+
+td {
+    vertical-align: top;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Lede */
+
+.lede > li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lede > li .ledepic {
+    min-width: 75px;
+}
+
+.lede > li .ledepic * {
+    box-shadow: none;
+}
+
+ul.lede > li {
+    padding: 0.7rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow); 
+}
+
+/* -------------------------------------------------------------------- */
+/* Lists */
+
+
+ul, ol {
+    padding-inline-start: 1rem;
+}
+
+ul > li {
+    padding-left: 0rem;
+}
+
+li::marker {
+    font-variant-numeric: lining-nums;
+}
+
+.pages > li {
+    margin-bottom: 2rem;
+}
+
+.index td {
+    padding-bottom: 1.8rem;
+}
+
+.index tr td p {
+    margin-bottom: 0.3rem;
+}
+
+.index tr td:first-child {
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+    

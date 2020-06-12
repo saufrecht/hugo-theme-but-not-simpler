@@ -1,0 +1,5 @@
+{{ with .Param "shorttitle" }} 
+  {{ . | markdownify}} 
+{{else}} 
+  {{.Title}} 
+{{ end }} 

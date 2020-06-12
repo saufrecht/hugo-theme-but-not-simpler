@@ -1,0 +1,6 @@
+{{- with .PrevInSection -}}
+<nav class="prev">
+  <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}" class="arrow no-under">⬅</a>
+  <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}">{{- .Title -}}</a>
+</nav>
+{{- end -}}

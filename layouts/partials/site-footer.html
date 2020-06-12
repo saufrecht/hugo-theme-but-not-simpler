@@ -1,0 +1,31 @@
+<nav class="foot-nav">
+  <span>
+    {{- if ne .Page.Title "About" -}}
+    <a href="/about">About</a>
+    {{- else -}}
+    About
+    {{- end -}}
+  </span>
+  <span>
+    {{- if ne .Page.Title "Categories" -}}
+    <a href="/categories">Categories</a>
+    {{- else -}}
+    Sitemap
+    {{- end -}}
+  </span>
+  <span>
+    {{- if ne .Page.Title "Privacy" -}}
+    <a href="/about/privacy">Privacy</a>
+    {{- else -}}
+    Privacy
+    {{- end -}}
+  </span>
+  <span>
+    <a href="/index.xml">RSS: <img class="icon" alt="RSS Feed" src="/Rss-feed.svg"/></a>
+  </span>
+  <span class="right"><a href="http://www.powells.com/book/contact-9780671004101">Contact</a>: <a href="mailto:nsadmin@aufrecht.org"><img class="icon" alt="email" src="/Email_Shiny_Icon.svg"/></a>
+  </span>
+</nav>
+<div class="copyright small">
+  {{- partial "copyright" . -}}
+</div>

@@ -1,0 +1,20 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "example.org"
+preserveTaxonomyNames = true
+footnotereturnlinkcontents = "↩"
+copyright = "© Your Name here"
+summaryLength = 10
+
+[permalinks]
+  blog = "blog/:slug/"
+
+[params]
+  AuthorName = "Your Name"
+  logoUrl = "logo.png"
+  thumbMaxPx = "75x75"
+  slideMaxPx = "150x150"
+  bodyMaxPx = "600x600"
+
+[markup.goldmark.renderer]
+  unsafe = true
