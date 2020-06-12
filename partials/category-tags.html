@@ -1,8 +1,0 @@
-{{- with .Params.categories -}}
-
-<nav class="tags">
-  {{- range sort . "value" "asc" -}}
-    <a href="/categories/{{- . | urlize -}}"><small>🏷</small> &nbsp;{{- . -}} </a>
-  {{- end -}}
-</nav>
-{{- end -}}
