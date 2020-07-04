@@ -86,37 +86,9 @@ select {
     --rowgrid: repeat(auto-fill, 200px);
     --max-width: 1000px;
     --bodyspan: span 3;
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Most of Gruvbox                                           */
-/*———————————————————————————————————————————————————————————*/
-:root {
-  --dark-0h:     #1d2021; /* bg0_h */
-  --dark-0:      #282828; /* bg0   */
-  --dark-0s:     #32302f; /* bg0_s */
-  --light-4:     #a89984; /* fg4   */
-  --light-3:     #bdae93; /* fg3   */
-  --light-2:     #d5c4a1; /* fg2   */
-  --light-1:     #ebdbb2; /* fg1   */
-  --light-0:     #fbf1c7; /* fg0   */
-  --light-0h:    #f9f5d7; /* bg0_h light mode */
-  --light-0s:    #f2e5bc; /* bg0_s light mode */
-  --red-−1:      #9d0006; /* red 3nd row; note that second dash is actually a negative sign */
-  --red-0:       #cc241d; /* red 1st row */
-  --red-1:       #fb4934; /* red 2nd row */
-  --yellow-0:    #d79921; /* yellow 1st row */
-  --yellow-1:    #fabd2f; /* yellow 2nd row */
-  --green-0:     #98971a; /* green 1st row */
-  --green-1:     #b8bb26; /* green 2nd row */
-  --gray-0:      #a89984; /* gray */
-  --gray-1:      #928374; /* other gray */
-  --purple-0:    #b16286; /* purple 1st row */
-  --purple-1:    #d3869b; /* purple 2nd row */
-  --orange-0:    #d65d0e; /* orange 1st row */
-  --orange-1:    #fe8019; /* orange 2nd row */
-  --blue-0:      #458488; /* blue 1st row */
-  --blue-1:      #83a598; /* blue 2nd row */
+    --serif: 'Lusitana', serif;
+    --sans: 'PT Sans', sans-serif;
+    --mono: 'monospace';
 }
 
 /*———————————————————————————————————————————————————————————*/
@@ -151,7 +123,7 @@ select {
     --light-link:           #369be2;
     --light-link-faint:     rgba(54, 154, 226, 0.4);
     --light-link-visited:   rgba(133, 106, 203, 0.4);
-    --dark-link-faint:       rgba(83, 84, 150, 0.4);
+    --dark-link-faint:      rgba(83, 84, 150, 0.4);
     --dark-link:            #535496;
     --dark-link-visited:    #535476;
 }
@@ -193,60 +165,16 @@ select {
 /* Fonts                                                     */
 /*———————————————————————————————————————————————————————————*/
 
-@font-face {
-    font-family: 'Museo';
-    src: url('fonts/MuseoSansCyrl_500.woff2') format('woff2'),
-         url('fonts/MuseoSansCyrl-500.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'QuadraatOT';
-    src: url('fonts/QuadraatOT.woff2') format('woff2'),
-         url('fonts/QuadraatOT.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'QuadraatOT';
-    src: url('fonts/1f717086-8b2b-4a8f-ae95-ecf1bc4b3acb.woff2') format('woff'),
-         url('fonts/78c9b52f-4d1a-44ea-9c6b-d1855e505ce8.ttf') format('truetype');
-    font-style: italic;
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'QuadraatSansOT';
-    src: url('fonts/QuadraatSansOT.woff') format('woff'),
-         url('fonts/QuadraatSansOT.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'QuadraatSansMonoOT';
-    src: url('fonts/QuadraatSansMonoOT.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-}
-
 footer, header, h1, h2, h3, nav, table, figcaption, .headnotes, .footnotes, .title {
-    font-family: QuadraatSansOT, Museo, sans-serif;
+    font-family: var(--sans);
 }
 
 body {
-    font-family: QuadraatOT, serif;
+    font-family: var(--serif);
 }
 
 code, pre, .screenplay, .date {
-    font-family: QuadraatSansMonoOT, Lucido Console, Monaco, monospace;
+    font-family: var(--mono);
 }
 
 

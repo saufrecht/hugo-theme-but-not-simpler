@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="sa-brand-identity.css"/>
+  </head>
+  <body>
+    <header>
+      <aside class="headnotes"></aside>
+      <main>{{ .Title }}</main>
+      <aside class="footnotes"></aside>
+    </header>
+    <main>
+      <header>
+        <aside class="headnotes"></aside>
+        <main></main>
+        <aside class="footnotes"></aside>
+      </header>
+      <main>
+        <aside class="headnotes"></aside>
+        <main>            
+          404
+        </main>
+        <aside class="footnotes"></aside>
+      </main>
+      <footer>
+        <aside class="headnotes"></aside>
+        <main></main>
+        <aside class="footnotes"></aside>
+      </footer>
+    </main>
+    <footer>
+        <aside class="headnotes"></aside>
+      <main>{{- partial "site-footer" . -}}</main>
+        <aside class="footnotes"></aside>
+    </footer>
+    </main>
+  </body>
+</html>
