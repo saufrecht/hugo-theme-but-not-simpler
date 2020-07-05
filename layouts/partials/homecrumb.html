@@ -1,0 +1,7 @@
+<a href="/">
+  {{- if .Site.Params.home_crumb -}}
+    <img class="icon" src="{{- .Site.Params.home_crumb -}}" title="{{- .Site.Title -}}"/>
+    {{- else -}}
+    Home
+    {{- end -}}
+</a>

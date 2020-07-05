@@ -1,6 +1,7 @@
-<nav><a href="/"><img class="icon" src="/kona.png" /></a>
+<nav>
+  {{ partial "homecrumb" . }}
   {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
-  </nav>
+</nav>
 
 {{- define "breadcrumbnav" -}}
   {{- if .p1.Parent -}}
@@ -12,7 +13,7 @@
   {{- end -}}
 {{- end -}}
 
-<h1>
+<h1 id="page-title">
   <a href="{{ .Permalink }}">{{ .Title }}</a>
 </h1>
 

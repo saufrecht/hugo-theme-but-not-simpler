@@ -5,18 +5,22 @@
 
   </div>
   <h1>
-    {{- .Site.Params.title -}}
+ZAP    {{- .Site.Params.title -}}
   </h1>
 </div>
 
 {{- end -}}
 
 {{- define "main_headnotes" }}
-&nbsp;
+  {{- range .Pages }}
+    {{ .Render "summary" }}
+  {{- end }}
 {{- end -}}
 
 
 {{- define "main" -}}
 
+BLARGz
 {{- .Content -}}
+
 {{- end -}}

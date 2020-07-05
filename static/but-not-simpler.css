@@ -38,7 +38,7 @@ dd {
 body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -87,7 +87,7 @@ select {
     --max-width: 1000px;
     --bodyspan: span 3;
     --serif: 'Lusitana', serif;
-    --sans: 'PT Sans', sans-serif;
+    --sans: 'Palanquin', sans-serif;
     --mono: 'monospace';
 }
 
@@ -165,7 +165,7 @@ select {
 /* Fonts                                                     */
 /*———————————————————————————————————————————————————————————*/
 
-footer, header, h1, h2, h3, nav, table, figcaption, .headnotes, .footnotes, .title {
+footer, header, h1, h2, h3, h4, h5, h6, nav, table, figcaption, .headnotes, .footnotes, .title {
     font-family: var(--sans);
 }
 
@@ -177,14 +177,13 @@ code, pre, .screenplay, .date {
     font-family: var(--mono);
 }
 
+/*———————————————————————————————————————————————————————————*/
+/* Shared Layout                                             */
+
 
 /* Spacing around and between paragraphs */
 main > p:first-of-type {
     padding-top: 0;
-}
-
-body > main > main > main > p {
-    margin-bottom: 1rem;
 }
 
 .screenplay {
@@ -197,9 +196,8 @@ p {
 }
 */
 
-
 /* -------------------------------------------------------------------- */
-/* Better Defaults for assorted things */
+/* link formatting.                                                     */
 
 a {
     text-decoration: underline;
@@ -238,6 +236,7 @@ sup {
     vertical-align: super;
     line-height: 0;
 }
+
 
 /* -------------------------------------------------------------------- */
 /* Hugo- and Markdown-specific */
@@ -281,94 +280,63 @@ dd {
     text-align: right;
 
 }
+
+aside > nav {
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+aside > nav > a {
+    align-items: center;
+    color: var(--fg-less);
+    display: flex;
+    font-size: 0.9rem;
+    height: 100%;
+    justify-content: center;
+    line-height; 1.1rem;
+    width: 100%;
+}
+
+.you-are-here {
+    box-shadow: var(--box-shadow);
+    padding: 0.2rem;
+}
+
+.you-are-here > *:first-child{
+    font-weight: 700;
+}
+
+
 /* -------------------------------------------------------------------- */
-/* Theme and Template-specific */
+/* Body */
 
-/* In order for headnotes and footnotes to work in both wide and
-   narrow screens, all grids fit directly onto the page (body), with
-   no smaller containers in-between.  All grids are defined the same
-   way, with rules that provide autofill 200px columns and unlimited
-   rows. 
-
-   The page comprises a flex column of rows.  Each row is a grid so that,
-   when the grid layout collapses on narrower screens, the order of elements 
-   is preserved.  Maximum grid on any screen should be five columns wide,
-   with the body getting five columns and the asides one column each.
-   There's a reason why each row is its own grid, instead of the whole
-   page being one grid, but I forgot what it is.
-
-  A1   A2   A2   A2   A3
-  
-  B1   B2   B2   B2   B3
-
-  C1   C2   C2   C2   C3
-
-turns into
-
-  A1
-
-  A2
-
-  A3
-
-  B1
-
-  B2
-
-  B3
-
-  C1
-
-  C2
-
-  C3
-
-*/
 
 body {
     background-color: var(--bg);
     color: var(--fg);
-    text-rendering: optimizeLegibility;
-    font-variant-ligatures: common-ligatures contextual historical-ligatures;
+    display: flex;
+    flex-direction: column;
     font-size: 1.2rem;
+    font-variant-ligatures: common-ligatures contextual historical-ligatures;
     height: 100vh;
-    line-height: 1.6rem;
     margin-left: auto;
     margin-right: auto;
     max-width: var(--max-width);
-    display: flex;
-    flex-direction: column;
+    text-rendering: optimizeLegibility;
 }
+
 
 /* -------------------------------------------------------------------- */
 /* Body Header */
 
 body > header {
+    align-items: stretch;
     display: grid;
     grid-template-columns: var(--rowgrid);
     justify-items: stretch;
-    align-items: stretch;
-}
-
-body > header > main {
-    color: var(--fg-most);
-    padding: 0.5rem;
-    grid-column-end: var(--bodyspan);
-    max-width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 0rem;
-    padding: 1rem;
-}
-
-body > header > main > .homepage-title {
-    display: flex;
-    align-items: center;
-}
-
-body > header > main > .homepage-title > h1 {
-    flex: 1;
 }
 
 body > header > main figure {
@@ -391,24 +359,49 @@ body > header > aside {
     height: 100%;
 }
 
-aside > nav {
-    display: flex;
-    align-items: stretch;
-    align-content: stretch;
-    width: 100%;
-    height: 100%;
+/* -------------------------------------------------------------------- */
+/* Body Header head and foot */
+
+
+/* -------------------------------------------------------------------- */
+/* Body Header main */
+
+body > header > main {
+    align-items: center;
+    color: var(--fg-most);
+    grid-column-end: var(--bodyspan);
+    justify-content: space-between;
+    margin-top: 0rem;
+    max-width: 100vw;
+    padding: 0.5rem;
+    padding: 1rem;
 }
 
-aside > nav > a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9rem;
-    line-height; 1.1rem;
-    color: var(--fg-less);
+h1#page-title {
+    color: var(--fg-more)!important;
+    font-size: 2rem;
+    font-weight: 700;
+    vertical-align: text-top;
+    text-align: center;
+    padding: 0.5rem;
+    flex: 1;
 }
+
+h1#page-title a {
+    text-decoration: none!important;
+}
+
+h1#page-title a:hover {
+    text-decoration: underline!important;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc)!important;
+}
+
+#homepage-title-wrapper {
+    align-items: center;
+    display: flex;
+}
+
 
 /* -------------------------------------------------------------------- */
 /* Main thing ( body > main ) */
@@ -462,6 +455,10 @@ body > main > main > main {
     align-self: stretch;
 }
 
+body > main > main > main > p {
+    margin-bottom: 1rem;
+}
+
 /* -------------------------------------------------------------------- */
 /* Main thing's footer row */
 /* -------------------------------------------------------------------- */
@@ -499,12 +496,14 @@ body > main > footer > main > nav {
 .prev > * {
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .next > * {
     display: flex;
     justify-content: flex-end;
     text-align: end;
+    align-items: flex-start;
 }
 
 
@@ -567,28 +566,41 @@ div.copyright > a {
 /* -------------------------------------------------------------------- */
 
 h1 {
-    color: var(--fg-more)!important;
-    font-size: 1.8rem;
-    vertical-align: text-top;
-    text-align: center;
-    padding: 0.5rem;
-}
-
-h1 > a {
-    text-decoration: none!important;
-}
-
-h1 > a:hover {
-    text-decoration: underline!important;
-    text-decoration-thickness: 0.1rem;
-    text-decoration-color: var(--fg-link-acc)!important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-size: 1.5rem;
-    align-self: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.3rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
 }
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h6 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
 
 h2 > a {
     color: var(--fg);
@@ -604,11 +616,6 @@ h2 > a:visited {
     text-decoration-color: var(--fg-link-visited);
 }
 
-h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    align-self: center;
-}
 
 header > h3:first-child {
     padding-top: .8rem;
@@ -628,10 +635,6 @@ h3 > a:visited {
     text-decoration-color: var(--fg-link-visited);
 }
 
-h4 {
-    font-size: 1.3rem;
-}
-
 h4 > a {
     color: var(--fg);
     text-decoration: underline;
@@ -644,10 +647,6 @@ h4 > a:visited {
     text-decoration: underline;
     text-decoration-thickness: 0.01rem;
     text-decoration-color: var(--fg-link-visited);
-}
-
-ul.toc li {
-    margin-left: 1rem;
 }
 
 ul.menu {
@@ -801,41 +800,12 @@ pre.shell *:before {
 .headnotes {
     align-self: start;
     font-size: 1.05rem;
+    font-variant: small-caps;
     color: var(--fg-less);
-    line-height: 1.15rem;
-    margin: 0rem;
-    margin-right: 1.5rem;
-    padding: 0.5rem;
-}
-
-.headnotes h4 {
-    color: inherit;
-}
-
-.headnotes > ul {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-inline-start: 0rem;
-}
-
-.headnotes ul li {
-    list-style: none;
-    padding-top: 1.5rem;
-    color: var(--fg);
-}
-
-.headnotes > ul li:first-child {
-    padding-top: 0.5rem;
-}
-
-.headnotes  ul li ul {
-    padding-inline-start: 1.1rem;
-}
-
-.headnotes  ul li ul li {
-    font-size: 1rem;
-    padding-top: 0.3rem;
-    margin-bottom: 0;
+    line-height: 2rem;
+    margin: 0;
+    margin-right: 2rem;
+    padding: 0.2rem;
 }
 
 /* Block an unwanted element of the markdown output */
@@ -853,6 +823,58 @@ pre.shell *:before {
     text-decoration-thickness: 0.1rem;
     text-decoration-color: var(--fg-link-acc);
     color: var(--fg-more);
+}
+
+.headnotes a:hover {
+    color: var(--fg-less);
+}
+
+.headnotes h1 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.headnotes h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    padding-left: 0.3rem;
+}
+
+.headnotes h3 {
+    font-size: 1rem;
+    margin: 0;
+    padding-left: 0.5rem;
+}
+
+.headnotes #TableOfContents {
+    line-height: 1.1rem;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+
+.headnotes #TableOfContents > ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5rem;
+}
+
+.headnotes #TableOfContents > ul > li {
+    list-style: none;
+    line-height: 2.0rem;
+    padding-left: 0.8rem;
+}
+
+.headnotes #TableOfContents > ul > li > ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 1.0rem;
+}
+
+.headnotes #TableOfContents > ul > li > ul > li {
+    list-style: none;
+    line-height: 2.0rem;
+    padding-left: 0rem;
 }
 
 

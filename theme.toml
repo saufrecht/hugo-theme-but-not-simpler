@@ -1,21 +1,20 @@
-# theme.toml template for a Hugo theme
-# See https://github.com/gohugoio/hugoThemes#themetoml for an example
-
 name = "But Not Simpler"
-license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = ""
-homepage = "http://example.com/"
-tags = []
+license = "GPL 3"
+licenselink = "https://github.com/saufrecht/hugo-theme-but-not-simpler/blob/master/LICENSE"
+description = "A CSS-only, no javascript, no SASS, responsive Hugo theme with solarized colors and automatic dark mode."
+homepage = "https://github.com/saufrecht/hugo-theme-but-not-simpler/"
+tags = [
+        "hugo",
+        "no javascript",
+        "no js",
+        "css only",
+        "responsive",
+        "dark mode",
+        "prefers-color-scheme"
+        ]
 features = []
 min_version = "0.41.0"
 
 [author]
-  name = ""
-  homepage = ""
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "S Aufrecht"
+  homepage = "https://aufrecht.org"

@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "example.org"
+Title = "example.org"
 preserveTaxonomyNames = true
 footnotereturnlinkcontents = "↩"
 copyright = "© Your Name here"
@@ -10,6 +10,11 @@ summaryLength = 10
   blog = "blog/:slug/"
 
 [params]
+  email = "nobody@example.com"
+  rss_icon = "/Rss-feed.svg"
+  pen_icon = "/pen.svg"
+  home_loaf = "/bread_loaf.jpg"
+  home_crumb = "/bread_crumb.jpg"
   AuthorName = "Your Name"
   logoUrl = "logo.png"
   thumbMaxPx = "75x75"

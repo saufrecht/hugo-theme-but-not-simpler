@@ -1,20 +1,17 @@
 {{- define "header_main" -}}
-
-<div class="homepage-title">
+<div id="homepage-title-wrapper">
   <div>
-
+    {{- if .Site.Params.home_loaf -}}
+      <img src="{{- .Site.Params.home_loaf -}}"/>
+      {{- else -}}
+      Home
+      {{- end -}}
   </div>
-  <h1>
-    {{- .Site.Params.title -}}
+  <h1 id="page-title">
+    {{- .Site.Title -}}
   </h1>
 </div>
-
 {{- end -}}
-
-{{- define "main_headnotes" }}
-&nbsp;
-{{- end -}}
-
 
 {{- define "main" -}}
 

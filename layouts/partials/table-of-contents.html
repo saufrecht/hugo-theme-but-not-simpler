@@ -1,39 +1,28 @@
-{{- if eq .Section "blog" -}}
-  {{ .TableOfContents }}
-{{- else -}}
-  {{- $this_page := . -}}
-  {{- $siblings := where site.RegularPages "Section" .Section -}}
-  {{- if .Pages -}}
-    <b>{{ partial "shorttitle" . }}</b>
-    <ul class="toc">
-      <li>
-        <ul>
-          <li>
-            {{ partial "tochack" . }}
-          </li>
-        </ul>
-      </li>
-      {{- range (sort .Pages "Title").Reverse }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a>
-        </li>
-      {{- end -}}
-    </ul>
-  {{- else if $siblings -}}
-    <a href="{{ .Section }}">{{ .Section }}</a>
-    <ul class="toc">
-      {{- range (sort $siblings "Title").Reverse }}
-        <li>
-          {{ if (eq $this_page .) }}
-            <b>{{ partial "shorttitle" . }}</b>
-            {{ partial "tochack" .}}
-          {{ else }}
-            <a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a>
-          {{ end }}
-        </li>
-      {{- end -}}
-    </ul>
-  {{- else -}}
-    <b>{{ partial "shorttitle" . }}</b>
+{{- $this_page := . -}}
+{{- $siblings := where site.RegularPages "Section" .Section -}}
+<h1><a href="/">{{- .Site.Title -}}</a></h1>
+{{- if .Pages -}}
+
+  {{- range (sort .Pages "Title").Reverse }}
+    <h3><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h3>
   {{- end -}}
+
+{{- else if $siblings -}}
+
+  <h2><a href="{{ .Section }}">{{ .Section }}</a></h2>
+  {{- range (sort $siblings "Title").Reverse }}
+    {{ if (eq $this_page .) }}
+      <div class="you-are-here">
+        <h3>{{ partial "shorttitle" . }}</h3>
+        {{ partial "tochack" .}}
+      </div>
+    {{ else }}
+      <h3><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h3>
+    {{ end }}
+  {{- end -}}
+
+{{- else -}}
+
+  <b>{{ partial "shorttitle" . }}</b>
+
 {{- end -}}
