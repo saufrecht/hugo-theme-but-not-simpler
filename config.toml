@@ -16,7 +16,6 @@ summaryLength = 10
   home_loaf = "/bread_loaf.jpg"
   home_crumb = "/bread_crumb.jpg"
   AuthorName = "Your Name"
-  logoUrl = "logo.png"
   thumbMaxPx = "75x75"
   slideMaxPx = "150x150"
   bodyMaxPx = "600x600"

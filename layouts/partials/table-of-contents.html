@@ -1,14 +1,18 @@
 {{- $this_page := . -}}
 {{- $siblings := where site.RegularPages "Section" .Section -}}
-<h1><a href="/">{{- .Site.Title -}}</a></h1>
+
+{{- if .IsHome -}}
+  <h1>Home</h1>
+{{- else -}}
+  <h1><a href="/">Home</a></h1>
+{{- end -}}
 {{- if .Pages -}}
 
-  {{- range (sort .Pages "Title").Reverse }}
-    <h3><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h3>
+  {{- range (sort .Pages "Title") }}
+    <h2><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h2>
   {{- end -}}
 
 {{- else if $siblings -}}
-
   <h2><a href="{{ .Section }}">{{ .Section }}</a></h2>
   {{- range (sort $siblings "Title").Reverse }}
     {{ if (eq $this_page .) }}
@@ -23,6 +27,6 @@
 
 {{- else -}}
 
-  <b>{{ partial "shorttitle" . }}</b>
+      <h2>{{ partial "shorttitle" . }}</h2>
 
 {{- end -}}

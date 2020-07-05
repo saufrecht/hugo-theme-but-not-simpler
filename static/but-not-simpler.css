@@ -38,7 +38,7 @@ dd {
 body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: 1.6;
+  line-height: 1.6rem;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -253,7 +253,6 @@ dd {
 
 #fp-list li {
     list-style-type: none;
-    line-height: 2rem;
     text-indent: 2rem hanging;
 }
 
@@ -290,23 +289,21 @@ aside > nav {
 }
 
 aside > nav > a {
-    align-items: center;
-    color: var(--fg-less);
-    display: flex;
     font-size: 0.9rem;
     height: 100%;
-    justify-content: center;
-    line-height; 1.1rem;
     width: 100%;
 }
 
 .you-are-here {
     box-shadow: var(--box-shadow);
     padding: 0.2rem;
+    margin-left: -0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .you-are-here > *:first-child{
     font-weight: 700;
+    padding-bottom: 0.5rem;
 }
 
 
@@ -333,14 +330,11 @@ body {
 /* Body Header */
 
 body > header {
+    padding-top: 1rem;
     align-items: stretch;
     display: grid;
     grid-template-columns: var(--rowgrid);
     justify-items: stretch;
-}
-
-body > header > main figure {
-    margin: 0;
 }
 
 body > header a {
@@ -374,7 +368,10 @@ body > header > main {
     margin-top: 0rem;
     max-width: 100vw;
     padding: 0.5rem;
-    padding: 1rem;
+}
+
+body > header > main figure {
+    margin: 0;
 }
 
 h1#page-title {
@@ -400,6 +397,12 @@ h1#page-title a:hover {
 #homepage-title-wrapper {
     align-items: center;
     display: flex;
+}
+
+.arrow {
+    flex: 1;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
 }
 
 
@@ -435,14 +438,18 @@ body > main > header > main:empty {
     display: none;
 }
 
+header > h3:first-child {
+    padding-top: .8rem;
+}
+
 /* -------------------------------------------------------------------- */
 /* Main thing's main row ( body > main > main ) */
 /* -------------------------------------------------------------------- */
 
 body > main > main {
+    align-content: start;
     display: grid;
     grid-template-columns: var(--rowgrid);
-    align-content: start;
 }
 
 /* -------------------------------------------------------------------- */
@@ -450,9 +457,9 @@ body > main > main {
 /* -------------------------------------------------------------------- */
 
 body > main > main > main {
+    align-self: stretch;
     grid-column-end: var(--bodyspan);
     max-width: 100vw;
-    align-self: stretch;
 }
 
 body > main > main > main > p {
@@ -495,6 +502,7 @@ body > main > footer > main > nav {
 
 .prev > * {
     display: flex;
+    text-align: start;
     justify-content: flex-start;
     align-items: flex-start;
 }
@@ -562,43 +570,49 @@ div.copyright > a {
 
 
 /* -------------------------------------------------------------------- */
-/* Theme-specific formatting tools */
+/* Theme-specific formatting */
 /* -------------------------------------------------------------------- */
 
 h1 {
     font-size: 2rem;
+    line-height: 2.2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
 h2 {
     font-size: 1.6rem;
+    line-height: 1.8em;
     font-weight: 700;
     margin-bottom: 1.3rem;
 }
 
 h3 {
     font-size: 1.3rem;
+    line-height: 1.4em;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 h4 {
     font-size: 1.1rem;
+    line-height: 1.2em;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
 }
 
 h5 {
     font-size: 1rem;
+    line-height: 1.1em;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 h6 {
     font-size: 0.9rem;
+    line-height: 1.1em;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.9rem;
 }
 
 
@@ -616,10 +630,6 @@ h2 > a:visited {
     text-decoration-color: var(--fg-link-visited);
 }
 
-
-header > h3:first-child {
-    padding-top: .8rem;
-}
 
 h3 > a {
     color: var(--fg);
@@ -654,7 +664,7 @@ ul.menu {
 }
 
 div.no-p {
-    padding-left: 2rem;
+    padding-left: 1rem;
 }
 
 div.no-p > p {
@@ -665,20 +675,6 @@ div.no-p > figure {
     float: right;
 }
 
-.arrow {
-    flex: 1;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-}
-
-
-.title {
-    font-weight: 700;
-}
-
-.article-title {
-    font-size: 1.2rem;
-}
 
 .draft {
     border: 2px solid var(--yellow);
@@ -757,11 +753,9 @@ blockquote {
 }
 
 
-code pre {
+code {
     line-height: 1.6rem;
-    font-size: 0.9rem;
-    padding-left: 0.5rem;
-    overflow: hidden;
+    font-size: 1.2rem;
 }
 
 pre {
@@ -769,7 +763,9 @@ pre {
     border-radius: var(--small-corner);
     margin-left: 1rem;
     margin-right: 1rem;
+    padding: 0.5rem;
     border: none;
+    overflow: hidden;
 }
 
 pre.shell {
@@ -800,9 +796,9 @@ pre.shell *:before {
 .headnotes {
     align-self: start;
     font-size: 1.05rem;
+    line-height: 1.3rem;
     font-variant: small-caps;
     color: var(--fg-less);
-    line-height: 2rem;
     margin: 0;
     margin-right: 2rem;
     padding: 0.2rem;
@@ -830,25 +826,31 @@ pre.shell *:before {
 }
 
 .headnotes h1 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.3rem;
     margin: 0;
+    padding-bottom: 1.5rem;
 }
 
 .headnotes h2 {
     font-size: 1.1rem;
+    line-height: 1.2rem;
     margin: 0;
-    padding-left: 0.3rem;
+    padding-bottom: 1rem;
+    padding-left: 0.2rem;
 }
 
 .headnotes h3 {
     font-size: 1rem;
+    line-height: 1.1rem;
     margin: 0;
-    padding-left: 0.5rem;
+    padding-bottom: 0.8rem;
+    padding-left: 0.4rem;
 }
 
 .headnotes #TableOfContents {
-    line-height: 1.1rem;
     font-size: 0.9rem;
+    line-height: 1rem;
     margin: 0;
     padding: 0;
 }
@@ -857,12 +859,13 @@ pre.shell *:before {
     margin: 0;
     padding: 0;
     padding-left: 0.5rem;
+    padding-bottom: 0;
 }
 
 .headnotes #TableOfContents > ul > li {
     list-style: none;
-    line-height: 2.0rem;
     padding-left: 0.8rem;
+    padding-bottom: 0.5rem;
 }
 
 .headnotes #TableOfContents > ul > li > ul {
@@ -1109,7 +1112,10 @@ td {
 ul.lede > li {
     padding: 0.7rem;
     margin-bottom: 2rem;
-    box-shadow: var(--box-shadow); 
+}
+
+.lede p {
+    text-decoration: none;
 }
 
 /* -------------------------------------------------------------------- */

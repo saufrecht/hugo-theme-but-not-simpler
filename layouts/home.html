@@ -14,6 +14,23 @@
 {{- end -}}
 
 {{- define "main" -}}
+  {{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
+  {{- index $content_parts 0 | safe.HTML -}}
 
-{{- .Content -}}
+  {{ $pages :=  where .Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
+  {{- with (sort $pages "Title") -}}
+    <ul class="lede">
+      {{ range . }}
+      <li {{ if .Draft }}class="draft"{{- end -}}>
+        {{- partial "lede" . -}}
+      </li>
+      {{- end -}} 
+    </ul>
+  {{- end -}}
+
+{{- end -}}
+
+{{- define "main_footnotes" -}}
+  {{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
+  {{- index $content_parts 1 | safe.HTML -}}
 {{- end -}}
