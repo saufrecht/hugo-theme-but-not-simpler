@@ -31,6 +31,7 @@ But Not Simpler is laid out in a three-column model.  The head column, which is 
 The three-column model only fully displays on appropriately wide displays.  On smaller screens, the side columns merge as necessary.  This happens via the CSS Grid layout engine, without media queries.  If the layout comprised only three cells, one per column, then the cells would stack on top of each other, scrambling the content.  For example, this would put the page title below the page navigation, and push the body footnotes below the page footer.  So, this layout uses five rows, for a total of 15 cells:
 
 |          |            |          |  Headnotes    |    main        | Footnotes   |
+|----------|------------|----------|---------------|----------------|-------------|
 | body     | header     |          |     1          |     2           |     3       |
 | body     | main       | header   |     4          |     5           |     6        |
 | body     | main       | main     |     7          |     8           |     9        |
@@ -39,7 +40,8 @@ The three-column model only fully displays on appropriately wide displays.  On s
 
 
 In a fully contracted layout, the cells render as
-
+|cell|
+|----|
 |  1 |
 |  2 |
 |  3  |
