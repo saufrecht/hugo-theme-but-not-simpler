@@ -1,167 +1,4 @@
 /*———————————————————————————————————————————————————————————*/
-/* Andy Bell Reset                                           */
-/*———————————————————————————————————————————————————————————*/
-
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default padding */
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-  font-weight: 400;
-}
-
-/* Set core body defaults */
-body {
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.6rem;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Some variables                                            */
-/*———————————————————————————————————————————————————————————*/
-:root {
-    --corner: 0.3rem;
-    --small-corner: 0.2rem;
-    --rowgrid: repeat(auto-fill, 200px);
-    --max-width: 1000px;
-    --bodyspan: span 3;
-    --serif: 'Lusitana', serif;
-    --sans: 'Palanquin', sans-serif;
-    --mono: 'monospace';
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Solarized */
-/*———————————————————————————————————————————————————————————*/
-:root {
-  --lightest:       #fdf6e3; /* Base3  */
-  --light:          #eee8d5; /* Base2  */
-  --dark-lightest:  #93a1a1; /* Base1  */
-  --dark-lighterer: #839496; /* Base0  */
-  --dark-lighter:   #657b83; /* Base00 */
-  --dark-light:     #586e75; /* Base01 */
-  --dark:           #073642; /* Base02 */
-  --darkest:        #002b36; /* Base03 */
-  --yellow:         #b58900;
-  --green:          #859900;
-  --gray:           #e1e1e1;
-  --magenta:        #d33682;
-  --violet:         #6c71c4;
-  --cyan:           #2aa198;
-  --orange:         #cb4b16;
-  --red:            #dc322f;
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Other colors                                              */
-/*———————————————————————————————————————————————————————————*/
-
-:root {
-    --default-link:         #0000ee;
-    --default-link-visited: #551a8b;
-    --light-link:           #369be2;
-    --light-link-faint:     rgba(54, 154, 226, 0.4);
-    --light-link-visited:   rgba(133, 106, 203, 0.4);
-    --dark-link-faint:      rgba(83, 84, 150, 0.4);
-    --dark-link:            #535496;
-    --dark-link-visited:    #535476;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg:     var(--lightest);         /* body background */
-        --fg:     var(--dark-light);
-        --svgfilter: invert(39%) sepia(24%) saturate(336%) hue-rotate(148deg) brightness(98%) contrast(86%);
-        --fg-more:  var(--dark);
-        --fg-most: var(--darkest);
-        --fg-less: var(--dark-lighter);
-        --fg-link:  var(--light-link-faint);
-        --fg-link-acc:  var(--light-link);
-        --fg-link-visited: var(--light-link-visited);
-        --body-shadow: 0.1em 0.2em 0.3em rgba(0, 0, 0, 0.3), 0.2em 0.3em 0.3em 0 rgba(0, 0, 0, 0.28);
-        --box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.2), 0.1em 0.2em .4em 0 rgba(0, 0, 0, 0.19);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg:      var(--darkest);
-        --fg:      var(--dark-lightest);
-        --svgfilter: invert(64%) sepia(18%) saturate(151%) hue-rotate(131deg) brightness(96%) contrast(89%);
-        --fg-more:   var(--light);
-        --fg-most:  var(--lightest);
-        --fg-less:  var(--dark-light);
-        --fg-link:  var(--dark-link-faint);
-        --fg-link-acc:  var(--dark-link);
-        --fg-link-visited: var(--dark-link-visited);
-        --body-shadow: none;
-        --box-shadow: none;
-    }
-}
-
-
-/*———————————————————————————————————————————————————————————*/
 /* Fonts                                                     */
 /*———————————————————————————————————————————————————————————*/
 
@@ -178,6 +15,20 @@ code, pre, .screenplay, .date {
 }
 
 /*———————————————————————————————————————————————————————————*/
+/* Global variables                                          */
+/*———————————————————————————————————————————————————————————*/
+:root {
+    --corner: 0.3rem;
+    --small-corner: 0.2rem;
+    --rowgrid: repeat(auto-fill, 200px);
+    --max-width: 1000px;
+    --bodyspan: span 3;
+    --serif: QuadraatOT, 'Lusitana', serif;
+    --sans: QuadraatSansOT,'Palanquin', sans-serif;
+    --mono: QuadraatSansMonoOT, Lucida Console, Monaco, monospace;
+}
+
+/*———————————————————————————————————————————————————————————*/
 /* Shared Layout                                             */
 
 
@@ -189,12 +40,6 @@ main > p:first-of-type {
 .screenplay {
     white-space: pre;
 }
-
-/* another hanging indent
-p {
-        margin: 6em inital;
-}
-*/
 
 /* -------------------------------------------------------------------- */
 /* link formatting.                                                     */
