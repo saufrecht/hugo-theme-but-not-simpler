@@ -1,0 +1,5 @@
+{{ with .Site.Params.stylesheets | default (slice "brand-identity" "but-not-simpler") }}
+  {{ range . }}
+    <link rel="stylesheet" href="/{{- . -}}.css"/>
+  {{ end }}
+{{ end }}

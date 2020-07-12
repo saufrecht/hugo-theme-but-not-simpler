@@ -147,3 +147,15 @@ select {
         --box-shadow: none;
     }
 }
+
+/*———————————————————————————————————————————————————————————*/
+/* Global variables                                          */
+/*———————————————————————————————————————————————————————————*/
+:root {
+    --serif: 'Lusitana', serif;
+    --sans: 'Palanquin', sans-serif;
+    --mono: 'Lucida Console', Monaco, monospace;
+    --corner: 0.3rem;
+    --small-corner: 0.2rem;
+    --table-border: 1px solid var(--fg-less);
+}

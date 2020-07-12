@@ -1,4 +1,15 @@
 /*———————————————————————————————————————————————————————————*/
+/* Global variables                                          */
+/*———————————————————————————————————————————————————————————*/
+:root {
+    --corner: 0.3rem;
+    --small-corner: 0.2rem;
+    --rowgrid: repeat(auto-fill, 200px);
+    --max-width: 1000px;
+    --bodyspan: span 3;
+}
+
+/*———————————————————————————————————————————————————————————*/
 /* Fonts                                                     */
 /*———————————————————————————————————————————————————————————*/
 
@@ -14,19 +25,6 @@ code, pre, .screenplay, .date {
     font-family: var(--mono);
 }
 
-/*———————————————————————————————————————————————————————————*/
-/* Global variables                                          */
-/*———————————————————————————————————————————————————————————*/
-:root {
-    --corner: 0.3rem;
-    --small-corner: 0.2rem;
-    --rowgrid: repeat(auto-fill, 200px);
-    --max-width: 1000px;
-    --bodyspan: span 3;
-    --serif: QuadraatOT, 'Lusitana', serif;
-    --sans: QuadraatSansOT,'Palanquin', sans-serif;
-    --mono: QuadraatSansMonoOT, Lucida Console, Monaco, monospace;
-}
 
 /*———————————————————————————————————————————————————————————*/
 /* Shared Layout                                             */
