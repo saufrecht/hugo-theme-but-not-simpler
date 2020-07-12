@@ -6,27 +6,11 @@
 {{- else -}}
   <h1><a href="/">Home</a></h1>
 {{- end -}}
-{{- if .Pages -}}
 
+{{- if .Pages -}}
   {{- range (sort .Pages "Title") }}
     <h2><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h2>
   {{- end -}}
 
-{{- else if $siblings -}}
-  <h2><a href="{{ .Section }}">{{ .Section }}</a></h2>
-  {{- range (sort $siblings "Title").Reverse }}
-    {{ if (eq $this_page .) }}
-      <div class="you-are-here">
-        <h3>{{ partial "shorttitle" . }}</h3>
-        {{ partial "tochack" .}}
-      </div>
-    {{ else }}
-      <h3><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h3>
-    {{ end }}
-  {{- end -}}
-
-{{- else -}}
-
-      <h2>{{ partial "shorttitle" . }}</h2>
-
 {{- end -}}
+
