@@ -9,5 +9,5 @@
     {{- $fonts = $fonts | append $string -}}
   {{- end -}}
   {{- $url_part := (delimit $fonts "|") | safeHTMLAttr -}}
-  <link {{- printf "href=\"//fonts.googleapis.com/css?family=%s\"" $url_part | safeHTMLAttr -}} rel="stylesheet">
+  <link {{ printf "href=\"//fonts.googleapis.com/css?family=%s\"" $url_part | safeHTMLAttr }} rel="stylesheet">
 {{- end -}}

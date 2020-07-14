@@ -137,7 +137,7 @@ select {
         --fg:      var(--dark-lighter);
         --svgfilter: invert(64%) sepia(18%) saturate(151%) hue-rotate(131deg) brightness(96%) contrast(89%);
         --fg-more:   var(--dark-lighterer);
-        --fg-most:  var(--dark-lighteste);
+        --fg-most:  var(--dark-lightest);
         --fg-less:  var(--dark-light);
         --fg-link:  var(--dark-link-faint);
         --fg-link-acc:  var(--dark-link);

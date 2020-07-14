@@ -19,6 +19,11 @@ summaryLength = 10
   thumbMaxPx = "75x75"
   slideMaxPx = "150x150"
   bodyMaxPx = "600x600"
+  google_fonts = [
+    ["PT Sans", "400, 700"],
+    ["Lusitana", "400, 700"],
+    ["Palanquin", "100, 400, 400i, 700, 700i"]
+  ]
 
 [markup.goldmark.renderer]
   unsafe = true

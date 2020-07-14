@@ -242,6 +242,10 @@ h1#page-title a:hover {
     display: flex;
 }
 
+#homepage-title-wrapper img {
+    box-shadow: var(--body-shadow);
+}
+
 .arrow {
     flex: 1;
     padding-left: 0.3rem;
@@ -641,7 +645,6 @@ pre.shell *:before {
     font-size: 1.05rem;
     line-height: 1.3rem;
     font-variant: small-caps;
-    color: var(--fg-less);
     margin: 0;
     margin-right: 2rem;
     padding: 0.2rem;
@@ -652,13 +655,15 @@ pre.shell *:before {
     display: none;
 }
 
-.headnotes a {
-    color: var(--fg-less);
+.headnotes > * > a {
+    color: var(--fg-link);
+    text-decoration: none;
     text-decoration-thickness: 0.01rem;
     text-decoration-color: var(--fg-link);
 }
 
 .headnotes a:hover {
+    text-decoration: underline;
     text-decoration-thickness: 0.1rem;
     text-decoration-color: var(--fg-link-acc);
     color: var(--fg-more);
@@ -669,23 +674,23 @@ pre.shell *:before {
 }
 
 .headnotes h1 {
-    font-size: 1.2rem;
-    line-height: 1.3rem;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
     margin: 0;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .headnotes h2 {
-    font-size: 1.1rem;
-    line-height: 1.2rem;
+    font-size: 1rem;
+    line-height: 1rem;
     margin: 0;
     padding-bottom: 1rem;
     padding-left: 0.2rem;
 }
 
 .headnotes h3 {
-    font-size: 1rem;
-    line-height: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
     margin: 0;
     padding-bottom: 0.8rem;
     padding-left: 0.4rem;
