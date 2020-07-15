@@ -4,11 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <link rel="stylesheet" href="/brand-identity.css"/>
-    <link rel="stylesheet" href="/but-not-simpler.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@100;400;700&display=swap" rel="stylesheet"> 
+    {{ partial "google-fonts" . }}
+    {{ partial "stylesheets" . }}
   </head>
   <body>
     <header>
@@ -49,29 +46,28 @@
       </main>
       <footer>
 
-        <aside class="headnotes">{{- block "main_footer_headnotes" . -}}
-          {{- partial "prev" . -}}
-        {{- end -}}</aside>
+        <aside class="headnotes">{{- block "main_footer_headnotes" . -}}{{- end -}}</aside>
 
         <main>{{- block "main_footer_main" . -}}
           &nbsp;{{ partial "category-tags" . }}
         {{- end -}}</main>
 
-        <aside class="footnotes">{{- block "main_footer_footnotes" . -}}
-          {{- partial "next" . -}}
-        {{- end -}}</aside>
+        <aside class="footnotes">{{- block "main_footer_footnotes" . -}}{{- end -}}</aside>
 
       </footer>
     </main>
     <footer>
 
-      <aside class="headnotes">{{- block "footer_headnotes" . -}}{{- end -}}</aside>
+      <aside class="headnotes">{{- block "footer_headnotes" . -}}
+        {{- partial "prev" . -}}{{- end -}}</aside>
 
       <main>{{- block "footer_main" . -}}
-        {{- partial "site-footer" . -}}
+        {{- partialCached "site-footer" . -}}
       {{- end -}}</main>
 
-      <aside class="footnotes">{{- block "footer_footnotes" . -}}{{- end -}}</aside>
+      <aside class="footnotes">{{- block "footer_footnotes" . -}}
+        {{- partial "next" . -}}
+      {{- end -}}</aside>
 
     </footer>
     </main>

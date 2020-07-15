@@ -1,0 +1,5 @@
+{{ with .Site.Params.stylesheets | default (slice "but-not-simpler-initial" "but-not-simpler") }}
+  {{ range . }}
+    <link rel="stylesheet" href="/{{- . -}}.css"/>
+  {{ end }}
+{{ end }}

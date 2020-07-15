@@ -23,6 +23,22 @@ TODO:
   - icon images for categories
   - integrate Docbook-generated chapters
 
+# Usage
+
+Standard for hugo themes …
+
+
+
+# Customization
+
+
+## Navigation images
+
+
+
+## Custom Styles
+
+
 
 ## Page Layout
 
@@ -31,6 +47,7 @@ But Not Simpler is laid out in a three-column model.  The head column, which is 
 The three-column model only fully displays on appropriately wide displays.  On smaller screens, the side columns merge as necessary.  This happens via the CSS Grid layout engine, without media queries.  If the layout comprised only three cells, one per column, then the cells would stack on top of each other, scrambling the content.  For example, this would put the page title below the page navigation, and push the body footnotes below the page footer.  So, this layout uses five rows, for a total of 15 cells:
 
 |          |            |          |  Headnotes    |    main        | Footnotes   |
+|----------|------------|----------|---------------|----------------|-------------|
 | body     | header     |          |     1          |     2           |     3       |
 | body     | main       | header   |     4          |     5           |     6        |
 | body     | main       | main     |     7          |     8           |     9        |
@@ -39,7 +56,8 @@ The three-column model only fully displays on appropriately wide displays.  On s
 
 
 In a fully contracted layout, the cells render as
-
+|cell|
+|----|
 |  1 |
 |  2 |
 |  3  |
@@ -64,3 +82,19 @@ The body element is vertical flexbox.  Each cell in the flexbox is then filled w
 
 The three logical columns of the layout use a CSS grid width of five grid columns, each 200px wide.  The main column fills three grid columns and the head and foot one column.  This resizes smoothly as the width shrinks.
 
+
+## All Parameters
+  email = "nobody@example.com"
+  rss_icon = "/Rss-feed.svg"
+  pen_icon = "/pen.svg"
+  home_loaf = "/bread_loaf.jpg"
+  home_crumb = "/bread_crumb.jpg"
+  AuthorName = "Your Name"
+  thumbMaxPx = "75x75"
+  slideMaxPx = "150x150"
+  bodyMaxPx = "600x600"
+  google_fonts = [
+    ["PT Sans", "400, 700"],
+    ["Lusitana", "400, 700"],
+    ["Palanquin", "100, 400, 400i, 700, 700i"]
+  ]

@@ -2,5 +2,6 @@
 presumably there's a better way to make it empty upstream? */ -}}
 
 {{- if gt (len .TableOfContents) 32  -}}
+<p>On this page</p>
 {{ .TableOfContents }}
 {{- end -}}

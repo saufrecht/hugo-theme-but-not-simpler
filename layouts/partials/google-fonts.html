@@ -1,0 +1,13 @@
+<!-- From https://gist.github.com/jeremybise/a6afea2d4c7f9044180ffeb663a617cf -->
+
+{{- with .Site.Params.google_fonts -}}
+  {{- $fonts := slice -}}
+  {{- range . -}}
+    {{- $family := replace (index (.)  0) " " "+" -}}
+    {{- $weights := replace (index (.) 1) " " "" -}}
+    {{- $string := print $family ":" $weights -}}
+    {{- $fonts = $fonts | append $string -}}
+  {{- end -}}
+  {{- $url_part := (delimit $fonts "|") | safeHTMLAttr -}}
+  <link {{ printf "href=\"//fonts.googleapis.com/css?family=%s\"" $url_part | safeHTMLAttr }} rel="stylesheet">
+{{- end -}}

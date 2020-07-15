@@ -1,4 +1,15 @@
 /*———————————————————————————————————————————————————————————*/
+/* Global variables                                          */
+/*———————————————————————————————————————————————————————————*/
+:root {
+    --corner: 0.3rem;
+    --small-corner: 0.2rem;
+    --rowgrid: repeat(auto-fill, 200px);
+    --max-width: 1000px;
+    --bodyspan: span 3;
+}
+
+/*———————————————————————————————————————————————————————————*/
 /* Fonts                                                     */
 /*———————————————————————————————————————————————————————————*/
 
@@ -14,32 +25,18 @@ code, pre, .screenplay, .date {
     font-family: var(--mono);
 }
 
-/*———————————————————————————————————————————————————————————*/
-/* Some variables                                            */
-/*———————————————————————————————————————————————————————————*/
-:root {
-    --corner: 0.3rem;
-    --small-corner: 0.2rem;
-    --rowgrid: repeat(auto-fill, 200px);
-    --max-width: 1000px;
-    --bodyspan: span 3;
-    --serif: 'Lusitana', serif;
-    --sans: 'Palanquin', sans-serif;
-    --mono: 'monospace';
-}
 
 /*———————————————————————————————————————————————————————————*/
 /* Shared Layout                                             */
 
 
-p, li {
-    text-align: justify;
-    hyphens: auto;
-}
-
 /* Spacing around and between paragraphs */
 main > p:first-of-type {
     padding-top: 0;
+}
+
+.screenplay {
+    white-space: pre;
 }
 
 /* -------------------------------------------------------------------- */
@@ -47,9 +44,10 @@ main > p:first-of-type {
 
 a {
     text-decoration: underline;
-    font-variant-numeric: lining-nums;
+    font-variant-numeric: lining-nums tabular-nums;
     color: inherit;
     text-decoration-thickness: 0.01rem;
+    text-decoration-style: dotted;
     text-decoration-color: var(--fg-link);
 }
 
@@ -243,6 +241,10 @@ h1#page-title a:hover {
 #homepage-title-wrapper {
     align-items: center;
     display: flex;
+}
+
+#homepage-title-wrapper img {
+    box-shadow: var(--body-shadow);
 }
 
 .arrow {
@@ -641,12 +643,12 @@ pre.shell *:before {
 
 .headnotes {
     align-self: start;
-    font-size: 1.05rem;
-    line-height: 1.3rem;
+    font-size: 1.1rem;
     font-variant: small-caps;
-    color: var(--fg-less);
-    margin: 0;
+    line-height: 1.3rem;
+    margin-bottom: 0.6rem;
     margin-right: 2rem;
+    margin: 0;
     padding: 0.2rem;
 }
 
@@ -655,13 +657,15 @@ pre.shell *:before {
     display: none;
 }
 
-.headnotes a {
-    color: var(--fg-less);
+.headnotes > * > a {
+    color: var(--fg-link);
+    text-decoration: none;
     text-decoration-thickness: 0.01rem;
     text-decoration-color: var(--fg-link);
 }
 
 .headnotes a:hover {
+    text-decoration: underline;
     text-decoration-thickness: 0.1rem;
     text-decoration-color: var(--fg-link-acc);
     color: var(--fg-more);
@@ -671,62 +675,23 @@ pre.shell *:before {
     color: var(--fg-less);
 }
 
-.headnotes h1 {
-    font-size: 1.2rem;
-    line-height: 1.3rem;
+.headnotes > p {
+    margin-bottom: 0.5rem;
+}
+
+.headnotes ul {
     margin: 0;
-    margin-top: 2rem;
+    margin-left: 0.4rem;
+    list-style-type: none;
     margin-bottom: 1rem;
-
 }
 
-.headnotes h2 {
-    font-size: 1.1rem;
-    line-height: 1.2rem;
-    margin: 0;
-    padding-bottom: 1rem;
-    padding-left: 0.2rem;
-}
-
-.headnotes h3 {
-    font-size: 1rem;
-    line-height: 1.1rem;
-    margin: 0;
-    padding-bottom: 0.8rem;
-    padding-left: 0.4rem;
-}
-
-.headnotes #TableOfContents {
+.headnotes ul > li {
     font-size: 0.9rem;
     line-height: 1rem;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 0.4rem;
 }
 
-.headnotes #TableOfContents > ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 0.5rem;
-    padding-bottom: 0;
-}
-
-.headnotes #TableOfContents > ul > li {
-    list-style: none;
-    padding-left: 0.8rem;
-    padding-bottom: 0.5rem;
-}
-
-.headnotes #TableOfContents > ul > li > ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 1.0rem;
-}
-
-.headnotes #TableOfContents > ul > li > ul > li {
-    list-style: none;
-    line-height: 2.0rem;
-    padding-left: 0rem;
-}
 
 footer .tags {
     display: flex;
@@ -919,15 +884,6 @@ table {
     margin-right: auto;
 }
 
-table.border: {
-    border-collapse: collapse;
-    padding: 0;
-}
-
-.border td {
-    border: 1px solid var(--fg-less);
-}
-
 table tr {
     line-height: 2rem;
 }
@@ -941,7 +897,7 @@ table .num {
 }
 
 th {
-    font-weight: 700;;
+    font-weight: normal;
 }
 
 td {
@@ -983,12 +939,7 @@ ul, ol {
 }
 
 ul > li {
-    margin-left: 0rem;
-    margin-bottom: 0.8rem;
-}
-
-ul > li > ul {
-    margin-top: 0.7rem;
+    padding-left: 0rem;
 }
 
 li::marker {
@@ -1013,3 +964,5 @@ li::marker {
     flex-direction: column;
     align-items: start;
 }
+
+    
