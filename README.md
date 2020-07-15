@@ -23,6 +23,22 @@ TODO:
   - icon images for categories
   - integrate Docbook-generated chapters
 
+# Usage
+
+Standard for hugo themes …
+
+
+
+# Customization
+
+
+## Navigation images
+
+
+
+## Custom Styles
+
+
 
 ## Page Layout
 
@@ -66,3 +82,19 @@ The body element is vertical flexbox.  Each cell in the flexbox is then filled w
 
 The three logical columns of the layout use a CSS grid width of five grid columns, each 200px wide.  The main column fills three grid columns and the head and foot one column.  This resizes smoothly as the width shrinks.
 
+
+## All Parameters
+  email = "nobody@example.com"
+  rss_icon = "/Rss-feed.svg"
+  pen_icon = "/pen.svg"
+  home_loaf = "/bread_loaf.jpg"
+  home_crumb = "/bread_crumb.jpg"
+  AuthorName = "Your Name"
+  thumbMaxPx = "75x75"
+  slideMaxPx = "150x150"
+  bodyMaxPx = "600x600"
+  google_fonts = [
+    ["PT Sans", "400, 700"],
+    ["Lusitana", "400, 700"],
+    ["Palanquin", "100, 400, 400i, 700, 700i"]
+  ]

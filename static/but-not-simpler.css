@@ -44,9 +44,10 @@ main > p:first-of-type {
 
 a {
     text-decoration: underline;
-    font-variant-numeric: lining-nums;
+    font-variant-numeric: lining-nums tabular-nums;
     color: inherit;
     text-decoration-thickness: 0.01rem;
+    text-decoration-style: dotted;
     text-decoration-color: var(--fg-link);
 }
 
@@ -642,11 +643,12 @@ pre.shell *:before {
 
 .headnotes {
     align-self: start;
-    font-size: 1.05rem;
-    line-height: 1.3rem;
+    font-size: 1.1rem;
     font-variant: small-caps;
-    margin: 0;
+    line-height: 1.3rem;
+    margin-bottom: 0.6rem;
     margin-right: 2rem;
+    margin: 0;
     padding: 0.2rem;
 }
 
@@ -673,59 +675,21 @@ pre.shell *:before {
     color: var(--fg-less);
 }
 
-.headnotes h1 {
-    font-size: 1.1rem;
-    line-height: 1.1rem;
-    margin: 0;
-    padding-bottom: 1rem;
+.headnotes > p {
+    margin-bottom: 0.5rem;
 }
 
-.headnotes h2 {
-    font-size: 1rem;
-    line-height: 1rem;
+.headnotes ul {
     margin: 0;
-    padding-bottom: 1rem;
-    padding-left: 0.2rem;
+    margin-left: 0.4rem;
+    list-style-type: none;
+    margin-bottom: 1rem;
 }
 
-.headnotes h3 {
-    font-size: 0.9rem;
-    line-height: 0.9rem;
-    margin: 0;
-    padding-bottom: 0.8rem;
-    padding-left: 0.4rem;
-}
-
-.headnotes #TableOfContents {
+.headnotes ul > li {
     font-size: 0.9rem;
     line-height: 1rem;
-    margin: 0;
-    padding: 0;
-}
-
-.headnotes #TableOfContents > ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 0.5rem;
-    padding-bottom: 0;
-}
-
-.headnotes #TableOfContents > ul > li {
-    list-style: none;
-    padding-left: 0.8rem;
-    padding-bottom: 0.5rem;
-}
-
-.headnotes #TableOfContents > ul > li > ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 1.0rem;
-}
-
-.headnotes #TableOfContents > ul > li > ul > li {
-    list-style: none;
-    line-height: 2.0rem;
-    padding-left: 0rem;
+    margin-bottom: 0.4rem;
 }
 
 

@@ -46,29 +46,28 @@
       </main>
       <footer>
 
-        <aside class="headnotes">{{- block "main_footer_headnotes" . -}}
-          {{- partial "prev" . -}}
-        {{- end -}}</aside>
+        <aside class="headnotes">{{- block "main_footer_headnotes" . -}}{{- end -}}</aside>
 
         <main>{{- block "main_footer_main" . -}}
           &nbsp;{{ partial "category-tags" . }}
         {{- end -}}</main>
 
-        <aside class="footnotes">{{- block "main_footer_footnotes" . -}}
-          {{- partial "next" . -}}
-        {{- end -}}</aside>
+        <aside class="footnotes">{{- block "main_footer_footnotes" . -}}{{- end -}}</aside>
 
       </footer>
     </main>
     <footer>
 
-      <aside class="headnotes">{{- block "footer_headnotes" . -}}{{- end -}}</aside>
+      <aside class="headnotes">{{- block "footer_headnotes" . -}}
+        {{- partial "prev" . -}}{{- end -}}</aside>
 
       <main>{{- block "footer_main" . -}}
-        {{- partial "site-footer" . -}}
+        {{- partialCached "site-footer" . -}}
       {{- end -}}</main>
 
-      <aside class="footnotes">{{- block "footer_footnotes" . -}}{{- end -}}</aside>
+      <aside class="footnotes">{{- block "footer_footnotes" . -}}
+        {{- partial "next" . -}}
+      {{- end -}}</aside>
 
     </footer>
     </main>

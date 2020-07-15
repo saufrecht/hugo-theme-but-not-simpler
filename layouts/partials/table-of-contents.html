@@ -1,16 +1,25 @@
 {{- $this_page := . -}}
-{{- $siblings := where site.RegularPages "Section" .Section -}}
+{{- $this_section := .CurrentSection -}}
+{{- $parent := .Parent -}}
 
-{{- if .IsHome -}}
-  <h1>Home</h1>
-{{- else -}}
-  <h1><a href="/">Home</a></h1>
-{{- end -}}
-
-{{- if .Pages -}}
-  {{- range (sort .Pages "Title") }}
-    <h2><a href="{{ .RelPermalink }}">{{ partial "shorttitle" . }}</a></h2>
+{{- $toc_children :=  where .Pages "Params.notoc" "!=" true -}}
+{{- with $toc_children -}}
+  {{- if $parent -}}
+    <p><a href="{{- $parent.RelPermalink -}}" title="Up to {{ $parent.Title }}">🠕</a></p>
+    <p>In this section</p>
+  {{- else -}}
+    <p>On this site</p>
   {{- end -}}
 
+    <ul>
+      {{ range (sort . "Title") }}
+        <li>
+          <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . -}}</a>
+        </li>
+      {{- end -}}
+    </ul>
+
+
 {{- end -}}
 
+{{- partial "tochack" . -}}
