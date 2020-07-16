@@ -1,9 +1,8 @@
-{{- define "main_headnotes" -}}
-  {{ partial "tochack" . }}
- {{- end -}}
-
 {{- define "main" -}}
-  {{ .Content }}
+{{ with .Content }}
+  {{ . }}
+<hr/>
+{{ end }}
 
   {{- if .Data.Pages -}}
     <table class="index">
@@ -26,7 +25,7 @@
           </td>
           <td>
             {{- range sort .Pages "Title" -}}
-              <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+              <p {{ if .Draft }}class="draft"{{ end }}><a href="{{ .Permalink }}">{{ with .Title }}{{ . }}{{ else }}NO TITLE{{ end}}</a></p>
             {{ end }}
           </td>
         </tr>

@@ -1,13 +1,3 @@
-{{- define "main_headnotes" -}}
-  {{- if .Data.Pages -}}
-  <ul>
-    {{ range (sort .Data.Pages "Title").Reverse }}
-      <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
-    {{ end }}
-  </ul>
-  {{- end -}}
-{{- end -}}
-
 {{- define "main" -}}
   {{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
   {{- index $content_parts 0 | safe.HTML -}}
@@ -32,8 +22,22 @@
           </td>
           <td>
             {{- range .Pages -}}
-              <p><span class="date">{{ .Date.Format "Jan 02" }}</span>: <a href="{{ .Permalink }}" class="article-title">{{ .Title }}</a></p>
-            {{ end }}
+              {{- if eq .Kind "section" -}}
+                <p><a href="{{ .Permalink }}" class="article-title">{{ .Title }}</a>
+                {{ with .Pages }}
+                    <small><samp>  {{ printf "%4d" (len .) }}</samp></small>
+                    {{ if eq (len .) 1 }}
+                    page
+                    {{ else }}
+                    {{- "page" | pluralize -}}
+                    {{ end }}
+                  </smalL>
+                {{ end }}  
+                </p>
+              {{- else -}}
+                <p><span class="date">{{ .Date.Format "Jan 02" }}</span>: <a href="{{ .Permalink }}" class="article-title">{{ .Title }}</a></p>
+              {{- end -}}
+            {{- end -}}
           </td>
         </tr>
         {{ end }}

@@ -21,7 +21,7 @@ body {
     font-family: var(--serif);
 }
 
-code, pre, .screenplay, .date {
+code, pre, var, .screenplay, .date {
     font-family: var(--mono);
 }
 
@@ -569,6 +569,9 @@ div.no-p > figure {
     margin-bottom: 0.5rem;
 }
 
+samp {
+    white-space: break-spaces;
+}
 
 /* -------------------------------------------------------------------- */
 /* Code, Blockquote, Pre */
