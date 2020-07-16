@@ -712,12 +712,13 @@ footer .tags {
 .footnotes {
     align-self: start;
     color: var(--fg-less);
-    font-size: 0.9rem;
-    line-height: 1.1rem;
-    margin: 0.5rem;
-    margin-left: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
+    margin: 0.4rem;
+    margin-left: 0.5rem;
     padding: 0.2rem;
-    padding-left: 0.7rem;
+    text-align: justify;
+    hyphens: auto;
 }
 
 .footnotes:empty {
@@ -726,9 +727,7 @@ footer .tags {
 
 .footnotes ol {
     margin-top: 0;
-    margin-bottom: 0;
-    padding-inline-start: 1rem;
-    padding-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .footnotes > ol > li {
@@ -766,14 +765,12 @@ a.footnote-ref:hover {
     font-size: 0.6rem;
 }
 
-
-li.footfoot {
-    list-style: none;
-}
-
-li.footfoot > ol {
-    margin-top: 2rem;
+ol.footfoot {
+    font-size: 0.65rem;
+    line-height: 0.7rem;
     list-style-type: hebrew;
+    margin: 0;
+    margin-left: 1rem;
 }
 
 .footnote-backref {
