@@ -5,7 +5,7 @@
 {{- $toc_children :=  where .Pages "Params.notoc" "!=" true -}}
 {{- with $toc_children -}}
   {{- if $parent -}}
-    <p><a href="{{- $parent.RelPermalink -}}" title="Up to {{ $parent.Title }}">🠕</a></p>
+    <p><a href="{{- $parent.RelPermalink -}}" title="Up to {{ $parent.Title }}">⬆</a></p>
     <p>In this section</p>
   {{- else -}}
     <p>On this site</p>

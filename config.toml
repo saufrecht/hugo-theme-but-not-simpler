@@ -13,6 +13,7 @@ summaryLength = 10
   email = "nobody@example.com"
   rss_icon = "/Rss-feed.svg"
   pen_icon = "/pen.svg"
+  date_icon = "/Linecons_small-calendar.svg"
   home_loaf = "/bread_loaf.jpg"
   home_crumb = "/bread_crumb.jpg"
   AuthorName = "Your Name"

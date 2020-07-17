@@ -10,7 +10,7 @@
             <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
             {{ if .Page.Params.ledepic -}}
               {{- $image := resources.Get .Page.Params.ledepic -}}
-              {{- $show_image := ($image.Resize "100x100") -}}
+              {{- $show_image := ($image.Fit "100x100") -}}
               <div class="blog-thumb">
                 <figure>
                   <a href="{{ .Page.RelPermalink }}">
@@ -35,7 +35,7 @@
                 {{ end }}  
                 </p>
               {{- else -}}
-                <p><span class="date">{{ .Date.Format "Jan 02" }}</span>: <a href="{{ .Permalink }}" class="article-title">{{ .Title }}</a></p>
+                <p><a href="{{ .Permalink }}" class="article-title">{{ .Title }}</a></p>
               {{- end -}}
             {{- end -}}
           </td>

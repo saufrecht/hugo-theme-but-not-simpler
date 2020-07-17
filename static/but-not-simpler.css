@@ -7,6 +7,7 @@
     --rowgrid: repeat(auto-fill, 200px);
     --max-width: 1000px;
     --bodyspan: span 3;
+    --thin-border: 1px dotted var(--fg-less);
 }
 
 /*———————————————————————————————————————————————————————————*/
@@ -349,6 +350,7 @@ body > main > footer > main > nav {
 }
 
 .prev > * {
+    font-variant: small-caps;
     display: flex;
     text-align: start;
     justify-content: flex-start;
@@ -356,6 +358,7 @@ body > main > footer > main > nav {
 }
 
 .next > * {
+    font-variant: small-caps;
     display: flex;
     justify-content: flex-end;
     text-align: end;
@@ -910,7 +913,23 @@ td {
 
 .lede > li {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+}
+
+.lede > li > * {
+    display: flex;
+    justify-content: space-between;
+}    
+
+.lede > li > div.title {
+    border: var(--thin-border);
+    padding: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.lede a.title {
+    flex: 3;
 }
 
 .lede > li .ledepic {
@@ -920,6 +939,11 @@ td {
 .lede > li .ledepic * {
     box-shadow: none;
 }
+
+.lede .no-p {
+    width: 100%;
+}
+
 
 ul.lede > li {
     padding: 0.7rem;

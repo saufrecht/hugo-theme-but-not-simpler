@@ -1,22 +1,24 @@
-<a href="{{ .RelPermalink }}">
+<div class="title">
+  <a class="title" href="{{ .RelPermalink }}">{{.Title}}</a>
+  {{ partial "byline" . }}
+</div>
+
+{{- if or .Summary .Params.ledepic -}}
   <div>
-    <span class="title">{{.Title}}</span>
-    <span class="date">{{ .Date.Format "2006-01-02" }} {{ if .Draft }}DRAFT{{- end -}}</span>
+
+    {{- if .Params.ledepic -}}
+      {{- $image := resources.Get .Params.ledepic -}}
+      {{- $show_image := ($image.Resize "75x75") -}}
+      <a href="{{ .RelPermalink }}" class="ledepic">
+        <figure>
+          <img src="{{ $show_image.RelPermalink }}"/>
+        </figure>
+      </a>
+    {{ end }}
+
+    {{- with .Summary -}}
+      <div class="no-p">{{- . -}}</div>
+    {{- end }}
+
   </div>
-  {{- with .Summary -}}
-    <div class="no-p">{{- . -}}…</div>
-  {{- end }}
-</a>
-
-{{- if .Params.ledepic -}}
-
-    {{- $image := resources.Get .Params.ledepic -}}
-    {{- $show_image := ($image.Resize "75x75") -}}
-    <a href="{{ .RelPermalink }}" class="ledepic">
-      <figure>
-        <img src="{{ $show_image.RelPermalink }}"/>
-      </figure>
-    </a>
-
 {{ end }}
-
