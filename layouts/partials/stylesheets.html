@@ -1,4 +1,4 @@
-{{ with .Site.Params.stylesheets | default (slice "but-not-simpler-initial" "but-not-simpler") }}
+{{ with .Site.Params.stylesheets | default (slice "initial-but-not-simpler" "but-not-simpler") }}
   {{ range . }}
     <link rel="stylesheet" href="/{{- . -}}.css"/>
   {{ end }}
