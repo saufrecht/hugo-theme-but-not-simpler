@@ -10,7 +10,16 @@
     {{- with (sort .Pages "Title") -}}
       <hr/>
       <ul class="lede">
-        {{ range . }}
+      {{- $sort := $.Page.FirstSection.Params.sort | default "" -}}
+      {{- $list := . -}}
+
+      {{- if (eq $sort "rchron") -}}
+        {{- $list = sort .  "Date"  -}}
+      {{- else -}}
+        {{- $list = sort . "Title" -}}
+      {{- end -}}
+
+        {{ range $list  }}
         <li {{ if .Draft }}class="draft"{{- end -}}>
           {{- partial "lede" . -}}
         </li>

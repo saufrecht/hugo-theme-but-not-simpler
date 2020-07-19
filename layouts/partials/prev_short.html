@@ -1,6 +1,8 @@
-{{- with .PrevInSection -}}
+{{- with .Scratch.Get "prev_page" -}}
   <nav class="prev">
-    <a href="{{- .RelPermalink -}}" class="no-under arrow" title="Previous: {{ .Title }}">⬅</a>
-    <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}">Prev</a>
+    {{ range . }}
+      <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}" class="no-under arrow">⬅</a>
+      <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}">Prev</a>
+    {{ end }}
   </nav>
 {{- end -}}

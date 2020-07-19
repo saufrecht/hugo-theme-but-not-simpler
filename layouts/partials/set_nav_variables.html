@@ -1,0 +1,36 @@
+{{- $sibling_pages := slice -}}
+{{- $sorted_pages := slice -}}
+{{- $next := slice -}}
+{{- $prev := slice -}}
+{{- $sort := slice -}}
+
+{{- with .Parent -}}
+  {{- $purl := .RelPermalink -}}
+  {{- range sort (where .Site.Pages "IsHome" false) -}}
+    {{- $temp := . -}}
+    {{- if ne .Params.notoc true -}} 
+      {{- with .Parent -}}
+        {{- if eq .RelPermalink $purl -}}
+          {{- $sibling_pages = $sibling_pages | append $temp -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $sibling_pages -}}
+  {{- $sort = .Parent.FirstSection.Params.sort | default "" -}}
+  {{- if (eq $sort "rchron") -}}
+    {{- $sorted_pages = sort $sibling_pages "Date"  -}}
+    {{- $next = first 1 (where $sorted_pages "Date" "gt" .Date) -}}
+    {{- $prev = last 1 (where $sorted_pages "Date" "lt" .Date) -}}
+  {{- else -}}
+    {{- $sorted_pages = sort $sibling_pages "Title" -}}
+    {{- $next = first 1 (where $sorted_pages "Title" "gt" .Title) -}}
+    {{- $prev = last 1 (where $sorted_pages "Title" "lt" .Title) -}}
+  {{- end -}}
+  {{- .Scratch.Set "sibling_pages" $sorted_pages -}}
+{{- end -}}
+
+{{- .Scratch.Set "next_page" $next -}}
+{{- .Scratch.Set "prev_page" $prev -}}

@@ -1,25 +1,40 @@
+{{- $sibling_pages := .Scratch.Get "sibling_pages" -}}
 {{- $this_page := . -}}
 {{- $this_section := .CurrentSection -}}
 {{- $parent := .Parent -}}
 
-{{- $toc_children :=  where .Pages "Params.notoc" "!=" true -}}
-{{- with $toc_children -}}
-  {{- if $parent -}}
-    <p><a href="{{- $parent.RelPermalink -}}" title="Up to {{ $parent.Title }}">⬆</a></p>
-    <p>In this section</p>
-  {{- else -}}
-    <p>On this site</p>
-  {{- end -}}
+<ol>
+  <li>
+    {{- if .IsHome -}}
 
-    <ul>
-      {{ range (sort . "Title") }}
-        <li>
-          <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . -}}</a>
-        </li>
+      {{- partial "tochack" $this_page -}}
+
+    {{- else -}}
+
+      <a href="{{- $parent.RelPermalink -}}" title="Up to {{- partial "shorttitle" $parent }}">{{- partial "shorttitle" $parent }}</a>
+ 
+      {{- if $sibling_pages -}}
+        <ol>
+          {{- range $sibling_pages -}}
+            {{- if eq .RelPermalink $this_page.RelPermalink -}}
+              <li class="you-are-here">
+
+                {{- partial "tochack" $this_page -}}
+
+              </li>
+            {{- else -}}
+              <li>
+                <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a>
+              </li>
+            {{- end -}}
+          {{- end -}}
+
+      {{- else -}}
+
+        {{- partial "tochack" $this_page -}}
+
       {{- end -}}
-    </ul>
 
-
-{{- end -}}
-
-{{- partial "tochack" . -}}
+    {{- end -}}
+  </li>
+</ol>

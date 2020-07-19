@@ -182,7 +182,7 @@ body > header {
     justify-items: stretch;
 }
 
-body > header a {
+body > header > main a {
     color: var(--fg-most);
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
@@ -223,6 +223,7 @@ h1#page-title {
     color: var(--fg-more)!important;
     font-size: 2rem;
     font-weight: 700;
+    margin: 0;
     vertical-align: text-top;
     text-align: center;
     padding: 0.5rem;
@@ -385,14 +386,14 @@ body > footer > main {
     max-width: 100vw;
 }
 
-body > footer a {
+body > footer > main a {
     color: var(--fg-most);
     text-decoration: underline;
     text-decoration-thickness: 0.02rem;
     text-decoration-color: var(--fg-link);
 }
 
-body > footer a:visited {
+body > footer > main a:visited {
     color: var(--fg-most);
     text-decoration: underline;
     text-decoration-thickness: 0.02rem;
@@ -428,7 +429,7 @@ h1 {
     font-size: 2rem;
     line-height: 2.2rem;
     font-weight: 700;
-    margin-bottom: 1.0rem;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -512,6 +513,10 @@ h4 > a:visited {
 
 ul.menu {
     margin: 0;
+}
+
+p + p {
+    margin-top: 0.5rem;
 }
 
 div.no-p {
@@ -666,8 +671,6 @@ pre.shell *:before {
 .headnotes > * > a {
     color: var(--fg-link);
     text-decoration: none;
-    text-decoration-thickness: 0.01rem;
-    text-decoration-color: var(--fg-link);
 }
 
 .headnotes a:hover {
@@ -681,23 +684,35 @@ pre.shell *:before {
     color: var(--fg-less);
 }
 
-.headnotes > p {
-    margin-bottom: 0.5rem;
+.headnotes ol {
+    margin: 0;
+    list-style-type: none;
 }
 
-.headnotes ul {
-    margin: 0;
-    margin-left: 0.4rem;
-    list-style-type: none;
+.headnotes ol > li {
+    font-size: 1.1rem;
     margin-bottom: 1rem;
 }
 
-.headnotes ul > li {
-    font-size: 0.9rem;
-    line-height: 1rem;
+.headnotes ol > li > ol {
+    margin-top: 0.6rem;
     margin-bottom: 0.4rem;
 }
 
+.headnotes ol > li > ol > li {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#TableOfContents > ul  {
+    margin-top: 0.5rem;
+}
+
+#TableOfContents > ul > li {
+    list-style-type: none;
+    margin-bottom: 0.3rem;
+}
 
 footer .tags {
     display: flex;
@@ -726,6 +741,23 @@ footer .tags {
     text-align: justify;
     hyphens: auto;
 }
+
+.footnotes > * > a {
+    color: var(--fg-link);
+    text-decoration: none;
+}
+
+.footnotes a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc);
+    color: var(--fg-more);
+}
+
+.footnotes a:hover {
+    color: var(--fg-less);
+}
+
 
 .footnotes:empty {
     display: none;

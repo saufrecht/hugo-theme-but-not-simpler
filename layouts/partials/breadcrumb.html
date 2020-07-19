@@ -9,12 +9,12 @@
   {{- end -}}
 
   {{- if (not (eq .p1 .p2)) -}}
-    <a href="{{ .p1.RelPermalink }}">{{- .p1.Title -}}</a><a href="{{ .p1.RelPermalink }}" span class="no-under">&nbsp;➟</a>&nbsp;&nbsp;
+    <a href="{{ .p1.RelPermalink }}">{{- partial "shorttitle" .p1 -}}</a><a href="{{ .p1.RelPermalink }}" span class="no-under">&nbsp;➟</a>&nbsp;&nbsp;
   {{- end -}}
 {{- end -}}
 
 <h1 id="page-title">
-  <a href="{{ .Permalink }}">{{ .Title }}</a>
+  <a href="{{ .Permalink }}">{{- partial "drafttitle" . -}}</a>
 </h1>
 
 {{- /* TODO: use ⬎ for the last arrow */ -}}
