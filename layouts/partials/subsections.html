@@ -1,0 +1,7 @@
+{{- if . -}}
+  <ol>
+    {{- range . -}}
+      <li><a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a></li>
+    {{- end -}}
+  </ol>
+{{- end -}}

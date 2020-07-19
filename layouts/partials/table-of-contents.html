@@ -1,40 +1,61 @@
-{{- $sibling_pages := .Scratch.Get "sibling_pages" -}}
+{{- $sorted_sibs := .Scratch.Get "sorted_sibs" -}}
 {{- $this_page := . -}}
 {{- $this_section := .CurrentSection -}}
 {{- $parent := .Parent -}}
+{{- $children :=  where .Pages "Params.notoc" "!=" true -}}
+{{- $has_toc := false -}}
+
+{{/* Hack: junk from an empty ToC is 32 char long .
+TODO: presumably there's a better way to make it empty upstream? */}}
+
+{{- if gt (len .TableOfContents) 32  -}}
+  {{- $has_toc = true -}}  
+{{- end -}}
+
+{{- $sort := .Params.sort | default "" -}}
+{{- if not $sort -}}
+  {{- $sort = $.FirstSection.Params.sort | default "" -}}
+{{- end -}}
+{{- if (eq $sort "chron") -}}
+  {{- $children = sort $children "Date"  -}}
+{{- else if (eq $sort "rchron") -}}
+  {{- $children = sort $children "Date" "desc" -}}
+{{- else -}}
+  {{- $children = sort $children "Title" -}}
+{{- end -}}
+
+{{- if $has_toc -}}
+<ol>
+  <li>
+    <span>On this page</span>
+    {{ .TableOfContents }}
+  </li>
+</ol>
+{{- end -}}
 
 <ol>
   <li>
     {{- if .IsHome -}}
-
-      {{- partial "tochack" $this_page -}}
-
+      <span>Home</span>
+      {{- partial "subsections" $children -}}
     {{- else -}}
-
       <a href="{{- $parent.RelPermalink -}}" title="Up to {{- partial "shorttitle" $parent }}">{{- partial "shorttitle" $parent }}</a>
- 
-      {{- if $sibling_pages -}}
+      {{- if $sorted_sibs -}}
         <ol>
-          {{- range $sibling_pages -}}
+          {{- range $sorted_sibs -}}
             {{- if eq .RelPermalink $this_page.RelPermalink -}}
               <li class="you-are-here">
-
-                {{- partial "tochack" $this_page -}}
-
+                <span>{{- partial "shorttitle" . }}</span>
+                {{- partial "subsections" $children -}}
               </li>
             {{- else -}}
               <li>
                 <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a>
               </li>
             {{- end -}}
-          {{- end -}}
-
-      {{- else -}}
-
-        {{- partial "tochack" $this_page -}}
-
+          {{- end -}} 
+        </ol>
       {{- end -}}
-
     {{- end -}}
   </li>
 </ol>

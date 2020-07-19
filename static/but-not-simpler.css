@@ -53,7 +53,6 @@ a {
 }
 
 a:visited {
-    color: var(--fg);
     text-decoration-color: var(--fg-link-visited);
 }
 
@@ -61,7 +60,6 @@ a:hover {
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
     text-decoration-color: var(--fg-link-acc);
-    color: var(--fg-more);
 }
 
 table a {
@@ -141,13 +139,17 @@ aside > nav > a {
 
 .you-are-here {
     box-shadow: var(--box-shadow);
-    padding: 0.2rem;
+    padding: 0.4rem;
     margin-left: -0.2rem;
+    margin-right: 1rem;
     margin-bottom: 0.5rem;
+    max-width: 100%;
+    width: max-content;
 }
 
 .you-are-here > *:first-child{
     font-weight: 700;
+    color: var(--fg);
     padding-bottom: 0.5rem;
 }
 
@@ -654,6 +656,7 @@ pre.shell *:before {
 
 .headnotes {
     align-self: start;
+    color: var(--fg-less);
     font-size: 1.1rem;
     font-variant: small-caps;
     line-height: 1.3rem;
@@ -668,20 +671,11 @@ pre.shell *:before {
     display: none;
 }
 
-.headnotes > * > a {
-    color: var(--fg-link);
-    text-decoration: none;
-}
-
 .headnotes a:hover {
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
     text-decoration-color: var(--fg-link-acc);
     color: var(--fg-more);
-}
-
-.headnotes a:hover {
-    color: var(--fg-less);
 }
 
 .headnotes ol {
@@ -691,27 +685,46 @@ pre.shell *:before {
 
 .headnotes ol > li {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .headnotes ol > li > ol {
+    padding-left: 0.4rem;
     margin-top: 0.6rem;
     margin-bottom: 0.4rem;
 }
 
-.headnotes ol > li > ol > li {
+.headnotes ol > li  ol > li {
     font-size: 0.9rem;
     line-height: 1rem;
     margin-bottom: 0.5rem;
+}
+
+.headnotes ol > li  ol > li ol > li {
+    padding-left: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
 #TableOfContents > ul  {
     margin-top: 0.5rem;
 }
 
+#TableOfContents a  {
+    color: var(--fg-less);
+}
+
 #TableOfContents > ul > li {
+    padding-left: 0.4rem;
     list-style-type: none;
-    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#TableOfContents > ul > li > ul > li {
+    list-style-type: none;
+    font-size: 0.8rem;
 }
 
 footer .tags {
@@ -991,11 +1004,7 @@ ul.lede > li {
 
 
 ul, ol {
-    padding-inline-start: 1rem;
-}
-
-ul > li {
-    padding-left: 0rem;
+    padding-inline-start: 0;
 }
 
 li::marker {

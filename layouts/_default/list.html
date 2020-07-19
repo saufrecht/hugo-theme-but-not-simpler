@@ -7,19 +7,22 @@
   {{- index $content_parts 0 | safe.HTML -}}
 
   {{- if not .Params.hide_summaries -}}
-    {{- with (sort .Pages "Title") -}}
+
+    {{- $sort := .Scratch.Get "sort" | default "" -}}
+    {{- $pages := slice -}}
+    {{- if $sort = "chron" -}}
+      {{- $pages = sort .Pages "Date" -}}
+    {{- else if $sort = "rchron" -}}
+      {{- $pages = sort .Pages "Date" "desc" -}}
+    {{- else -}}
+      {{- $pages = sort .Pages "Title" -}}
+    {{- end -}}
+
+    {{- with $pages -}}
       <hr/>
       <ul class="lede">
-      {{- $sort := $.Page.FirstSection.Params.sort | default "" -}}
-      {{- $list := . -}}
 
-      {{- if (eq $sort "rchron") -}}
-        {{- $list = sort .  "Date"  -}}
-      {{- else -}}
-        {{- $list = sort . "Title" -}}
-      {{- end -}}
-
-        {{ range $list  }}
+        {{ range .  }}
         <li {{ if .Draft }}class="draft"{{- end -}}>
           {{- partial "lede" . -}}
         </li>
