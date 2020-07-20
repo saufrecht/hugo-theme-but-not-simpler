@@ -127,7 +127,7 @@ select {
         --fg-link-visited: var(--light-link-visited);
         --screen: var(--dark);
         --body-shadow: 0.1em 0.2em 0.3em rgba(0, 0, 0, 0.3), 0.2em 0.3em 0.3em 0 rgba(0, 0, 0, 0.28);
-        --box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.2), 0.1em 0.2em .4em 0 rgba(0, 0, 0, 0.19);
+        --box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.2), 0.1em 0.2em 0.4em 0 rgba(0, 0, 0, 0.19);
     }
 }
 
@@ -144,7 +144,7 @@ select {
         --fg-link-visited: var(--dark-link-visited);
         --screen: var(--dark);
         --body-shadow: none;
-        --box-shadow: none;
+        --box-shadow: 0.1em 0.1em 0.4em rgba(88, 110, 117, 0.1), 0.1em 0.1em, 0.4em 0 rgba(88, 110, 117, 0.05);
     }
 }
 

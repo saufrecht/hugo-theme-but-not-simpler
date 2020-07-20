@@ -711,8 +711,15 @@ pre.shell *:before {
 .headnotes ol > li  ol > li ol > li {
     padding-left: 0.8rem;
     font-size: 0.8rem;
+    line-height: 0.9rem;
     font-weight: 400;
+    margin-bottom: 0.3rem;
 }
+
+.headnotes ol > li  ol > li ol > li:first-child {
+    padding-top: 0.2rem;
+}
+
 
 #TableOfContents > ul  {
     margin-top: 0.5rem;
@@ -734,6 +741,12 @@ pre.shell *:before {
 #TableOfContents > ul > li > ul > li {
     list-style-type: none;
     font-size: 0.8rem;
+    line-height: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+#TableOfContents > ul > li > ul > li:first-child {
+    padding-top: 0.2rem;
 }
 
 footer .tags {
