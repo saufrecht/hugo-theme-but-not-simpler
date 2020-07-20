@@ -286,9 +286,14 @@ body > main > header > main {
     padding-bottom: 1rem;
 }
 
-body > main > header > main:empty {
-    display: none;
+body > main > header > main:empty{
+    opacity: 0;
+    z-index: -1;
+    line-height: 1px;
+    margin: 0;
+    padding: 0;
 }
+
 
 header > h3:first-child {
     padding-top: .8rem;
@@ -515,6 +520,7 @@ h4 > a:visited {
 
 ul.menu {
     margin: 0;
+    padding-inline-start: 0;
 }
 
 p + p {
@@ -660,9 +666,10 @@ pre.shell *:before {
     font-size: 1.1rem;
     font-variant: small-caps;
     line-height: 1.3rem;
+    margin-left: 0;
+    margin-top: 0;
     margin-bottom: 0.6rem;
     margin-right: 2rem;
-    margin: 0;
     padding: 0.2rem;
 }
 
@@ -681,6 +688,7 @@ pre.shell *:before {
 .headnotes ol {
     margin: 0;
     list-style-type: none;
+    padding-inline-start: 0;
 }
 
 .headnotes ol > li {
@@ -708,6 +716,7 @@ pre.shell *:before {
 
 #TableOfContents > ul  {
     margin-top: 0.5rem;
+    padding-inline-start: 0;
 }
 
 #TableOfContents a  {
@@ -733,12 +742,33 @@ footer .tags {
     align-items: start;
 }
 
-.tags > a {
+.tags div {
     border-radius: var(--small-corner);
     background-color: var(--light);
+    display: flex;
+    align-items: center;
     margin: 2px;
     padding: 3px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     text-decoration: none;
+}
+
+.tags img {
+    display: inline;
+    text-decoration: none;
+}
+
+.tags a {
+    text-decoration: none;
+}
+
+.tags a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc);
+    color: var(--fg-more);
+
 }
 
 /* Footnotes */
@@ -749,7 +779,7 @@ footer .tags {
     font-size: 0.8rem;
     line-height: 0.9rem;
     margin: 0.4rem;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     padding: 0.2rem;
     text-align: justify;
     hyphens: auto;
@@ -767,11 +797,6 @@ footer .tags {
     color: var(--fg-more);
 }
 
-.footnotes a:hover {
-    color: var(--fg-less);
-}
-
-
 .footnotes:empty {
     display: none;
 }
@@ -779,6 +804,7 @@ footer .tags {
 .footnotes ol {
     margin-top: 0;
     margin-bottom: 1rem;
+    padding-inline-start: 0;
 }
 
 .footnotes > ol > li {
@@ -1004,7 +1030,7 @@ ul.lede > li {
 
 
 ul, ol {
-    padding-inline-start: 0;
+    padding-inline-start: 1.5rem;
 }
 
 li::marker {

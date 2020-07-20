@@ -4,6 +4,10 @@
 {{- $prev := slice -}}
 {{- $sort := slice -}}
 
+
+{{/* presumably this could be optimized by creating a single map of
+RelPermalink → page for the whole site, excluding home and .notoc */}}
+
 {{- with .Parent -}}
   {{- $sort = .Params.sort | default "" -}}
   {{- $purl := .RelPermalink -}}

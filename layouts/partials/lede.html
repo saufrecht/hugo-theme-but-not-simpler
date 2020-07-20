@@ -3,22 +3,8 @@
   {{ partial "byline" . }}
 </div>
 
-{{- $pic := slice -}}
-
-{{- with .Params.ledepic -}}
-  {{- $pic = . -}}
-{{- else -}}
-  {{- with .Params.categories -}}
-    {{- $cat := first 1 . -}}
-    {{- with $cat -}}
-      {{- $cat_path := (printf "%s%s" "/categories/" (delimit . "" | urlize)) -}}
-      {{- with $.Site.GetPage $cat_path -}}
-        {{- $catpic := .Params.ledepic | default "" -}}
-        {{- $pic = .Params.ledepic | default $catpic | default "" -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
+{{- partial "lede_or_cat_thumb" . -}}
+{{- $pic := .Scratch.Get "ledepic" | default slice -}}
 
 {{- if or .Summary $pic -}}
   <div>

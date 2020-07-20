@@ -1,8 +1,31 @@
 {{- with .Params.categories -}}
-
+{{- $catpic := slice -}}
 <nav class="tags">
   {{- range sort . "value" "asc" -}}
-    <a href="/categories/{{- . | urlize -}}"><small>🏷</small> &nbsp;{{- . -}} </a>
+    {{- $title :=  . -}}
+    {{- $cat_path := (printf "%s%s" "/categories/" (urlize .)) -}}
+    <div>
+      <a href="{{- $cat_path -}}">
+
+      {{- with $.Site.GetPage $cat_path -}}
+        {{- $catpic = .Params.ledepic | default "" -}}
+        {{- $title = .Title -}}
+      {{- end -}}
+
+      {{- if $catpic -}}
+        {{- $image := resources.Get $catpic -}}
+        {{- $show_image := ($image.Resize "20x20") -}}
+
+        <img src="{{ $show_image.RelPermalink }}"/>
+
+      {{- else -}}
+
+        🏷
+
+      {{- end -}}
+      <a href="{{- $cat_path -}}"><small> &nbsp;{{- $title -}}</small></a>
+    </div>
   {{- end -}}
+
 </nav>
 {{- end -}}
