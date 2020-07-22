@@ -13,7 +13,7 @@
 
     {{- if $pic -}}
       {{- $image := resources.Get $pic -}}
-      {{- $show_image := ($image.Resize "75x75") -}}
+      {{- $show_image := ($image.Fit "75x75") -}}
       <a href="{{ .RelPermalink }}" class="ledepic">
         <figure>
           <img src="{{ $show_image.RelPermalink }}"/>
