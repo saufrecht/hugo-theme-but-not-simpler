@@ -3,6 +3,8 @@
   {{ partial "byline" . }}
 </div>
 
+{{/* Show the ledepic of the article, or the ledepic
+     of the category index page */}}
 {{- partial "lede_or_cat_thumb" . -}}
 {{- $pic := .Scratch.Get "ledepic" | default slice -}}
 

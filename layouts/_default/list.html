@@ -10,9 +10,9 @@
 
     {{- $sort := .Scratch.Get "sort" | default "" -}}
     {{- $pages := slice -}}
-    {{- if $sort = "chron" -}}
+    {{- if eq $sort "chron" -}}
       {{- $pages = sort .Pages "Date" -}}
-    {{- else if $sort = "rchron" -}}
+    {{- else if (eq $sort "rchron") -}}
       {{- $pages = sort .Pages "Date" "desc" -}}
     {{- else -}}
       {{- $pages = sort .Pages "Title" -}}
