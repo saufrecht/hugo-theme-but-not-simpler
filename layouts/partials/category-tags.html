@@ -14,7 +14,7 @@
 
       {{- if $catpic -}}
         {{- $image := resources.Get $catpic -}}
-        {{- $show_image := ($image.Resize "20x20") -}}
+        {{- $show_image := ($image.Fit "20x20") -}}
 
         <img src="{{ $show_image.RelPermalink }}"/>
 
