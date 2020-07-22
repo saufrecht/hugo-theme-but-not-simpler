@@ -3,7 +3,8 @@
 {{- $next := slice -}}
 {{- $prev := slice -}}
 {{- $sort := slice -}}
-
+{{- $next_3 := slice -}}
+{{- $prev_3 := slice -}}
 
 {{/* presumably this could be optimized by creating a single map of
 RelPermalink → page for the whole site, excluding home and .notoc */}}
@@ -32,16 +33,23 @@ RelPermalink → page for the whole site, excluding home and .notoc */}}
     {{- $sorted_pages = sort $sibling_pages "Date"  -}}
     {{- $next = first 1 (where $sorted_pages "Date" "gt" .Date) -}}
     {{- $prev = last 1 (where $sorted_pages "Date" "lt" .Date) -}}
+    {{- $next_3 = first 3 (where $sorted_pages "Date" "gt" .Date) -}}
+    {{- $prev_3 = last 3 (where $sorted_pages "Date" "lt" .Date) -}}
   {{- else if (eq $sort "rchron") -}}
     {{- $sorted_pages = sort $sibling_pages "Date" "desc" -}}
     {{- $next = first 1 (where $sorted_pages "Date" "lt" .Date) -}}
     {{- $prev = last 1 (where $sorted_pages "Date" "gt" .Date) -}}
+    {{- $next_3 = first 3 (where $sorted_pages "Date" "lt" .Date) -}}
+    {{- $prev_3 = last 3 (where $sorted_pages "Date" "gt" .Date) -}}
   {{- else -}}
     {{- $sorted_pages = sort $sibling_pages "Title" -}}
     {{- $next = first 1 (where $sorted_pages "Title" "gt" .Title) -}}
     {{- $prev = last 1 (where $sorted_pages "Title" "lt" .Title) -}}
+    {{- $next_3 = first 3 (where $sorted_pages "Title" "gt" .Title) -}}
+    {{- $prev_3 = last 3 (where $sorted_pages "Title" "lt" .Title) -}}
   {{- end -}}
-  {{- .Scratch.Set "sorted_sibs" $sorted_pages -}}
+  {{- .Scratch.Set "sorted_sibs" ($prev_3 | append . | append $next_3) -}}
+
 {{- else -}}
   {{- .Scratch.Set "sorted_sibs" .Site.Home -}}
 {{- end -}}

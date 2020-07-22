@@ -33,6 +33,8 @@ TODO: presumably there's a better way to make it empty upstream? */}}
 </ol>
 {{- end -}}
 
+{{/* TODO: check whether the … are actually appropriate */}}
+
 <ol>
   <li>
     {{- if .IsHome -}}
@@ -42,6 +44,7 @@ TODO: presumably there's a better way to make it empty upstream? */}}
       <a href="{{- $parent.RelPermalink -}}" title="Up to {{- partial "shorttitle" $parent }}">{{- partial "shorttitle" $parent }}</a>
       {{- if $sorted_sibs -}}
         <ol>
+          <li>…</li>
           {{- range $sorted_sibs -}}
             {{- if eq .RelPermalink $this_page.RelPermalink -}}
               <li class="you-are-here">
@@ -54,6 +57,7 @@ TODO: presumably there's a better way to make it empty upstream? */}}
               </li>
             {{- end -}}
           {{- end -}} 
+          <li>…</li>
         </ol>
       {{- end -}}
     {{- end -}}
