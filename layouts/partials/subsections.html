@@ -1,7 +1,12 @@
 {{- if . -}}
   <ol>
-    {{- range . -}}
+    {{- range first site.Params.toc_range . }}
       <li><a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a></li>
     {{- end -}}
+    {{- $extra_next := sub (len .) site.Params.toc_range -}}
+    {{- if gt $extra_next 0 -}}
+      <li>{{- $extra_next -}}&nbsp;more …</li>
+    {{- end -}}
+
   </ol>
 {{- end -}}

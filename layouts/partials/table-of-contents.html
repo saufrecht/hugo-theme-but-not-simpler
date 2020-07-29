@@ -1,4 +1,5 @@
-{{- $sorted_sibs := .Scratch.Get "sorted_sibs" -}}
+{{- $prev := .Scratch.Get "prev" -}}
+{{- $next := .Scratch.Get "next" -}}
 {{- $this_page := . -}}
 {{- $this_section := .CurrentSection -}}
 {{- $parent := .Parent -}}
@@ -33,8 +34,6 @@ TODO: presumably there's a better way to make it empty upstream? */}}
 </ol>
 {{- end -}}
 
-{{/* TODO: check whether the … are actually appropriate */}}
-
 <ol>
   <li>
     {{- if .IsHome -}}
@@ -42,24 +41,45 @@ TODO: presumably there's a better way to make it empty upstream? */}}
       {{- partial "subsections" $children -}}
     {{- else -}}
       <a href="{{- $parent.RelPermalink -}}" title="Up to {{- partial "shorttitle" $parent }}">{{- partial "shorttitle" $parent }}</a>
-      {{- if $sorted_sibs -}}
+      {{- if or $next $prev -}}
         <ol>
-          <li>…</li>
-          {{- range $sorted_sibs -}}
-            {{- if eq .RelPermalink $this_page.RelPermalink -}}
-              <li class="you-are-here">
-                <span>{{- partial "shorttitle" . }}</span>
-                {{- partial "subsections" $children -}}
-              </li>
-            {{- else -}}
-              <li>
-                <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a>
-              </li>
-            {{- end -}}
-          {{- end -}} 
-          <li>…</li>
-        </ol>
       {{- end -}}
+
+      {{- $extra_prev := sub (len $prev) site.Params.toc_range -}}
+      {{- if gt $extra_prev 0 -}}
+          <li>
+            … {{- $extra_prev -}}&nbsp;more
+          </li>
+      {{- end -}}
+
+      {{- range last site.Params.toc_range $prev -}}
+          <li>
+             <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a>
+          </li>
+      {{- end -}}
+
+          <li class="you-are-here">
+            <span>{{- partial "shorttitle" . }}</span>
+            {{- partial "subsections" $children -}}
+          </li>
+
+      {{- range first site.Params.toc_range $next -}}
+          <li>
+             <a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a>
+          </li>
+      {{- end -}}
+
+      {{- $extra_next := sub (len $next) site.Params.toc_range -}}
+      {{- if gt $extra_next 0 -}}
+          <li>
+            {{- $extra_next -}}&nbsp;more …
+          </li>
+      {{- end -}}
+
+      {{- if or $next $prev -}}
+        <ol>
+      {{- end -}}
+
     {{- end -}}
   </li>
 </ol>

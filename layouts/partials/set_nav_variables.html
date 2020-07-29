@@ -3,57 +3,37 @@
 {{- $next := slice -}}
 {{- $prev := slice -}}
 {{- $sort := slice -}}
-{{- $next_3 := slice -}}
-{{- $prev_3 := slice -}}
+{{- $pp_dict := dict -}}
 
-{{/* presumably this could be optimized by creating a single map of
-RelPermalink → page for the whole site, excluding home and .notoc */}}
+{{- $map := .Scratch.Get "pp_dict" -}}
 
 {{- with .Parent -}}
   {{- $sort = .Params.sort | default "" -}}
-  {{- $purl := .RelPermalink -}}
-  {{- range sort (where .Site.Pages "IsHome" false) -}}
-    {{- $temp := . -}}
-    {{- if ne .Params.notoc true -}} 
-      {{- with .Parent -}}
-        {{- if eq .RelPermalink $purl -}}
-          {{- $sibling_pages = $sibling_pages | append $temp -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
-{{- if not $sort -}}
-  {{- $sort = $.FirstSection.Params.sort | default "" -}}
+  {{- $sibling_pages =  index $map .RelPermalink -}}
 {{- end -}}
 
 {{- if $sibling_pages -}}
   {{- if (eq $sort "chron") -}}
     {{- $sorted_pages = sort $sibling_pages "Date"  -}}
-    {{- $next = first 1 (where $sorted_pages "Date" "gt" .Date) -}}
-    {{- $prev = last 1 (where $sorted_pages "Date" "lt" .Date) -}}
-    {{- $next_3 = first 3 (where $sorted_pages "Date" "gt" .Date) -}}
-    {{- $prev_3 = last 3 (where $sorted_pages "Date" "lt" .Date) -}}
+    {{- $next = where $sorted_pages "Date" "gt" .Date -}}
+    {{- $prev = where $sorted_pages "Date" "lt" .Date -}}
   {{- else if (eq $sort "rchron") -}}
     {{- $sorted_pages = sort $sibling_pages "Date" "desc" -}}
-    {{- $next = first 1 (where $sorted_pages "Date" "lt" .Date) -}}
-    {{- $prev = last 1 (where $sorted_pages "Date" "gt" .Date) -}}
-    {{- $next_3 = first 3 (where $sorted_pages "Date" "lt" .Date) -}}
-    {{- $prev_3 = last 3 (where $sorted_pages "Date" "gt" .Date) -}}
+    {{- $next = where $sorted_pages "Date" "lt" .Date -}}
+    {{- $prev = where $sorted_pages "Date" "gt" .Date -}}
   {{- else -}}
     {{- $sorted_pages = sort $sibling_pages "Title" -}}
-    {{- $next = first 1 (where $sorted_pages "Title" "gt" .Title) -}}
-    {{- $prev = last 1 (where $sorted_pages "Title" "lt" .Title) -}}
-    {{- $next_3 = first 3 (where $sorted_pages "Title" "gt" .Title) -}}
-    {{- $prev_3 = last 3 (where $sorted_pages "Title" "lt" .Title) -}}
+    {{- $next = where $sorted_pages "Title" "gt" .Title -}}
+    {{- $prev = where $sorted_pages "Title" "lt" .Title -}}
   {{- end -}}
-  {{- .Scratch.Set "sorted_sibs" ($prev_3 | append . | append $next_3) -}}
-
+  {{- .Scratch.Set "sorted_sibs" $sorted_pages -}}
 {{- else -}}
   {{- .Scratch.Set "sorted_sibs" .Site.Home -}}
 {{- end -}}
 
-{{- .Scratch.Set "next_page" $next -}}
-{{- .Scratch.Set "prev_page" $prev -}}
-{{- .Scratch.Set "sort" $sort -}}
+{{- .Scratch.Set "next" $next -}}
+{{- .Scratch.Set "prev" $prev -}}
+{{- .Scratch.Set "next_page" (first 1 $next) -}}
+{{- .Scratch.Set "prev_page" (first 1 $prev) -}}
+
+

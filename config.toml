@@ -16,6 +16,7 @@ summaryLength = 10
   date_icon = "/Linecons_small-calendar.svg"
   home_loaf = "/bread_loaf.jpg"
   home_crumb = "/bread_crumb.jpg"
+  toc_range = 3
   AuthorName = "Your Name"
   thumbMaxPx = "75x75"
   slideMaxPx = "150x150"
