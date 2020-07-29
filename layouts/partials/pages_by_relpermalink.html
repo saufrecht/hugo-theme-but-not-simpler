@@ -1,0 +1,24 @@
+{{- $parent_list := slice -}}
+{{- $s := newScratch -}}
+{{- range where (where .Site.Pages "Params.notoc" "ne" true) "IsHome" "ne" true  -}}
+  {{ $purl := .Parent.RelPermalink }}
+  {{ $url := .RelPermalink }}
+  {{ $here := . }}
+  {{ $pages := slice }}
+  {{ $oldpages := slice }}
+  {{ $olddict := $s.Get "pp_dict" -}}
+
+{{ if $olddict }}
+  {{ $oldpages = index $olddict $purl }}
+  {{- if $oldpages -}}
+    {{- $pages = $oldpages | append (slice $here) -}}
+  {{- else -}}
+    {{- $pages = slice $here -}}
+  {{ end }}
+{{ end }}
+
+{{- $s.SetInMap "pp_dict" $purl $pages -}}
+
+{{- end -}}
+
+{{- .Scratch.Set "pp_dict" ($s.Get "pp_dict") }}
