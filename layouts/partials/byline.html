@@ -5,8 +5,8 @@
 {{- end -}}
 
 {{- if gt .Params.date 0 -}}
-  <div class="permalink">
-    <a href="{{- .RelPermalink -}}" title="permalink" class="date">
+  <div class="byline">
+    <a href="{{- .RelPermalink -}}" title="byline" class="date">
       {{- .Date.Format "2006 Jan 2" -}}
     </a>
     <a href="{{- .RelPermalink -}}" class=" no-under" title="permalink">

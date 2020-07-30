@@ -144,7 +144,7 @@ select {
         --fg-link-visited: var(--dark-link-visited);
         --screen: var(--dark);
         --body-shadow: none;
-        --box-shadow: 0.1em 0.1em 0.4em rgba(88, 110, 117, 0.1), 0.1em 0.1em, 0.4em 0 rgba(88, 110, 117, 0.05);
+        --box-shadow: 0.2em 0.2em 0.3rem 0.1rem rgba(88, 110, 117, 0.15), -0.1em -0.1em rgba(88, 110, 117, 0.1);
     }
 }
 

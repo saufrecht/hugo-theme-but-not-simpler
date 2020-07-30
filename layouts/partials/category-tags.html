@@ -1,6 +1,6 @@
 {{- with .Params.categories -}}
 {{- $catpic := slice -}}
-<nav class="tags">
+<div class="tags">
   {{- range sort . "value" "asc" -}}
     {{- $title :=  . -}}
     {{- $cat_path := (printf "%s%s" "/categories/" (urlize .)) -}}
@@ -27,5 +27,5 @@
     </div>
   {{- end -}}
 
-</nav>
+</div>
 {{- end -}}

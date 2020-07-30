@@ -1,6 +1,6 @@
 {{- $parent_list := slice -}}
 {{- $s := newScratch -}}
-{{- range where (where .Site.Pages "Params.notoc" "ne" true) "IsHome" "ne" true  -}}
+{{- range where (where site.Pages "Params.notoc" "ne" true) "IsHome" "ne" true  -}}
   {{ $purl := .Parent.RelPermalink }}
   {{ $url := .RelPermalink }}
   {{ $here := . }}
@@ -21,4 +21,4 @@
 
 {{- end -}}
 
-{{- .Scratch.Set "pp_dict" ($s.Get "pp_dict") }}
+{{- return $s.Get "pp_dict" }}

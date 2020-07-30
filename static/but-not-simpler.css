@@ -4,9 +4,9 @@
 :root {
     --corner: 0.3rem;
     --small-corner: 0.2rem;
-    --rowgrid: repeat(auto-fill, 250px);
+    --rowgrid: repeat(auto-fill, 200px);
     --max-width: 1000px;
-    --bodyspan: span 2;
+    --bodyspan: span 3;
     --thin-border: 1px dotted var(--fg-less);
     hyphens: auto;
 }
@@ -23,7 +23,7 @@ body {
     font-family: var(--serif);
 }
 
-code, pre, var, .screenplay, .date {
+code, pre, var, .screenplay, .byline {
     font-family: var(--mono);
 }
 
@@ -37,12 +37,8 @@ main > p:first-of-type {
     padding-top: 0;
 }
 
-.screenplay {
-    white-space: pre;
-}
-
 /* -------------------------------------------------------------------- */
-/* link formatting.                                                     */
+/* character-level formats                                              */
 
 a {
     text-decoration: underline;
@@ -81,6 +77,9 @@ sup {
     line-height: 0;
 }
 
+.screenplay {
+    white-space: pre;
+}
 
 /* -------------------------------------------------------------------- */
 /* Hugo- and Markdown-specific */
@@ -100,23 +99,20 @@ dd {
     text-indent: 2rem hanging;
 }
 
-.date {
+.byline {
     font-weight: 200;
+    text-align: right;
+    color: var(--fg);
     font-size: 0.8rem;
-    
 }
 
-.permalink {
-    font-weight: 200;
-    align-items: center;
-}
-
-.permalink img {
+.byline img {
     display: inline;
 }
 
-.permalink a {
-    color: var(--dark-lighterer);
+.byline a {
+    display: inline;
+    color: var(--fg);
 }
 
 .credit {
@@ -177,7 +173,7 @@ body {
 /* -------------------------------------------------------------------- */
 /* Body Header */
 
-body > header {
+body > header{ 
     padding-top: 1rem;
     align-items: stretch;
     display: grid;
@@ -185,25 +181,12 @@ body > header {
     justify-items: stretch;
 }
 
-body > header > main a {
-    color: var(--fg-most);
-    text-decoration: underline;
-    text-decoration-thickness: 0.1rem;
-    text-decoration-color: var(--fg-link);
-}
-
-body > header a:visited {
-    text-decoration-color: var(--fg-link-visited);
-}
-
 body > header > aside {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-
-/* -------------------------------------------------------------------- */
-/* Body Header head and foot */
-
 
 /* -------------------------------------------------------------------- */
 /* Body Header main */
@@ -217,6 +200,14 @@ body > header > main {
     max-width: 100vw;
     padding: 0.5rem;
 }
+
+body > header > main a {
+    color: var(--fg-most);
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link);
+}
+
 
 body > header > main figure {
     margin: 0;
@@ -262,42 +253,14 @@ h1#page-title a:hover {
 /* -------------------------------------------------------------------- */
 /* Main thing ( body > main ) */
 /* -------------------------------------------------------------------- */
-/* Main itself is a 3×3 grid, with header, main, and footer rows,
- and each row having a headnote aside, main, and footnote aside */ 
+/* Main itself is a 1×3 grid, with aside.headnotes, main,               */
+/* and aside.footnotes columns                                           */
+
 
 body > main {
-    display: contents;
-}
-
-/* -------------------------------------------------------------------- */
-/* Main thing header
-/* -------------------------------------------------------------------- */
-/* If empty, should not have any impact on formatting. */
-
-body > main > header {
     display: grid;
+    align-items: stretch;
     grid-template-columns: var(--rowgrid);
-}
-
-body > main > header > main {
-    grid-column-end: var(--bodyspan);
-    max-width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-}
-
-body > main > header > main:empty{
-    opacity: 0;
-    z-index: -1;
-    line-height: 1px;
-    margin: 0;
-    padding: 0;
-}
-
-
-header > h3:first-child {
-    padding-top: .8rem;
 }
 
 /* -------------------------------------------------------------------- */
@@ -305,22 +268,12 @@ header > h3:first-child {
 /* -------------------------------------------------------------------- */
 
 body > main > main {
-    align-content: start;
-    display: grid;
-    grid-template-columns: var(--rowgrid);
-}
-
-/* -------------------------------------------------------------------- */
-/* Main thing's main row's main part */
-/* -------------------------------------------------------------------- */
-
-body > main > main > main {
     align-self: stretch;
     grid-column-end: var(--bodyspan);
     max-width: 100vw;
 }
 
-body > main > main > main > p {
+body > main > main > p {
     margin-bottom: 1rem;
     text-align: justify;
 }
@@ -328,36 +281,6 @@ body > main > main > main > p {
 /* -------------------------------------------------------------------- */
 /* Main thing's footer row */
 /* -------------------------------------------------------------------- */
-
-body > main > footer {
-    display: grid;
-    grid-template-columns: var(--rowgrid);
-    align-items: center;
-}
-
-body > main > footer > main:empty {
-    display: none;
-}
-
-body > main > footer > main {
-    grid-column-end: var(--bodyspan);
-    max-width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    line-height: 1.1rem;
-    margin-top: 0rem;
-    padding: 1rem;
-}
-
-body > main > footer > main > * {
-    flex: 1 1 0;
-}
-
-body > main > footer > main > nav {
-    display: flex;
-    align-items: center;
-}
 
 .prev > * {
     font-variant: small-caps;
@@ -591,6 +514,51 @@ samp {
     white-space: break-spaces;
 }
 
+.tags {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+
+/* -------------------------------------------------------------------- */
+/* Category/taxonomy tags                                               */
+
+.tags div {
+    border-radius: var(--small-corner);
+    box-shadow: var(--box-shadow);
+    background-color: var(--bg);
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    margin: 2px;
+    padding: 3px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-decoration: none;
+}
+
+.tags div + div {
+    margin-top: 0.8rem;
+}
+
+.tags img {
+    display: inline;
+    text-decoration: none;
+}
+
+.tags a {
+    text-decoration: none;
+}
+
+.tags a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-decoration-color: var(--fg-link-acc);
+    color: var(--fg-more);
+
+}
+
 /* -------------------------------------------------------------------- */
 /* Code, Blockquote, Pre */
 
@@ -751,44 +719,9 @@ pre.shell *:before {
     padding-top: 0.2rem;
 }
 
-footer .tags {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-
-.tags div {
-    border-radius: var(--small-corner);
-    background-color: var(--light);
-    display: flex;
-    align-items: center;
-    margin: 2px;
-    padding: 3px;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    text-decoration: none;
-}
-
-.tags img {
-    display: inline;
-    text-decoration: none;
-}
-
-.tags a {
-    text-decoration: none;
-}
-
-.tags a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 0.1rem;
-    text-decoration-color: var(--fg-link-acc);
-    color: var(--fg-more);
-
-}
-
 /* Footnotes */
 
-.footnotes {
+main .footnotes {
     align-self: start;
     color: var(--fg-less);
     font-size: 0.8rem;
@@ -800,42 +733,42 @@ footer .tags {
     hyphens: auto;
 }
 
-.footnotes > * > a {
+main .footnotes > * > a {
     color: var(--fg-link);
     text-decoration: none;
 }
 
-.footnotes a:hover {
+main .footnotes a:hover {
     text-decoration: underline;
     text-decoration-thickness: 0.1rem;
     text-decoration-color: var(--fg-link-acc);
     color: var(--fg-more);
 }
 
-.footnotes:empty {
+main .footnotes:empty {
     display: none;
 }
 
-.footnotes ol {
+main .footnotes ol {
     margin-top: 0;
     margin-bottom: 1rem;
     padding-inline-start: 0;
 }
 
-.footnotes > ol > li {
+main .footnotes > ol > li {
     padding-top: 1rem;
 }
 
-.footnotes > ol > li:first-child {
+main .footnotes > ol > li:first-child {
     padding-top: 0;
 }
 
 /* Block an unwanted element of the markdown output */
-.footnotes hr {
+main .footnotes hr {
     display: none;
 }
 
-.footnotes a:hover {
+main .footnotes a:hover {
     text-decoration-thickness: 0.1rem;
     text-decoration-color: var(--fg-link-acc);
     color: var(--fg-more);
@@ -852,7 +785,7 @@ a.footnote-ref:hover {
     color: var(--orange);
 }
 
-.footnotes a.footnote-ref {
+main .footnotes a.footnote-ref {
     font-weight: inherit;
     font-size: 0.6rem;
 }
@@ -981,6 +914,11 @@ table tr {
     line-height: 2rem;
 }
 
+table tr > td {
+    border: none;
+    padding: 0.3rem;
+}
+
 table.index td:first-child {
     padding-right: 1rem;
 }
@@ -996,7 +934,6 @@ th {
 td {
     vertical-align: top;
 }
-
 
 /* -------------------------------------------------------------------- */
 /* Lede */

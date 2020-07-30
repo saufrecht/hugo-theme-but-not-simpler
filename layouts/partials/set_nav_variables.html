@@ -3,9 +3,7 @@
 {{- $next := slice -}}
 {{- $prev := slice -}}
 {{- $sort := slice -}}
-{{- $pp_dict := dict -}}
-
-{{- $map := .Scratch.Get "pp_dict" -}}
+{{- $map := partialCached "pages_by_relpermalink" "foo" -}}
 
 {{- with .Parent -}}
   {{- $sort = .Params.sort | default "" -}}

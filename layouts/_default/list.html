@@ -1,8 +1,6 @@
-{{- define "main_header_main" -}}
-  {{-  .Params.subtitle -}}
-{{- end -}}
-
 {{- define "main" -}}
+  {{-  .Params.subtitle -}}
+
   {{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
   {{- index $content_parts 0 | safe.HTML -}}
 
@@ -33,6 +31,7 @@
 {{- end -}}
 
 {{- define "main_footnotes" -}}
+  {{- partial "category-tags" . -}}
   {{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
   {{- index $content_parts 1 | safe.HTML -}}
 {{- end -}}

@@ -1,10 +1,18 @@
 {{- define "main" -}}
-  {{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
+{{ $child_list := slice }}
+{{- $content_parts := split .Content "<section class=\"footnotes\" role=\"doc-endnotes\">" -}}
   {{- index $content_parts 0 | safe.HTML -}}
-  {{- if .Data.Pages -}}
+  {{- if eq .Params.sort "chron" -}}
+    {{ $child_list = (sort .Data.Pages "Date") }}
+  {{- else if eq .Params.sort "rchron" -}}
+    {{ $child_list = sort .Data.Pages "Date" "desc" }}
+  {{- else -}}
+    {{ $child_list = sort .Data.Pages "Title" }}
+  {{- end -}}
+  {{- if $child_list -}}
     <table class="index">
       <tbody>
-        {{ range (sort .Data.Pages "Title").Reverse }}
+        {{ range $child_list }}
         <tr>
           <td>
             <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
