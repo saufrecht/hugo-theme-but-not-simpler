@@ -1,11 +1,19 @@
 {{- if . -}}
+  {{ $t_range := site.Params.toc_range -}}
   <ol>
-    {{- range first site.Params.toc_range . }}
+    {{- $extra_next := sub (len .) $t_range -}}
+
+    {{- range first $t_range . }}
       <li><a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a></li>
     {{- end -}}
-    {{- $extra_next := sub (len .) site.Params.toc_range -}}
-    {{- if gt $extra_next 0 -}}
-      <li>{{- $extra_next -}}&nbsp;more …</li>
+
+    {{- if eq $extra_next 1 -}}
+      {{- range last 1 . }}
+        <li><a href="{{- .RelPermalink -}}">{{- partial "shorttitle" . }}</a></li>
+      {{- end -}}
+    {{- else if eq $extra_next 0 -}}
+    {{- else -}}
+      <li>{{ $extra_next }} more</li>
     {{- end -}}
 
   </ol>

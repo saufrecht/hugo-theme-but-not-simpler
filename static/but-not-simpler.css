@@ -724,10 +724,10 @@ pre.shell *:before {
 main .footnotes {
     align-self: start;
     color: var(--fg-less);
-    font-size: 0.8rem;
-    line-height: 0.9rem;
-    margin: 0.4rem;
-    margin-left: 3.5rem;
+    font-size: 0.7rem;
+    line-height: 0.8rem;
+    margin: 0.2rem;
+    margin-left: 2.5rem;
     padding: 0.2rem;
     text-align: justify;
     hyphens: auto;
@@ -848,23 +848,23 @@ ol.footfoot {
 }
 
 figure {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-bottom: 1rem;
     overflow: hidden;
+    padding: 0.5rem;
 }
 
 figure > figcaption {
-    flex-grow: 1;
-    padding-top: 0.5rem;
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    flex-grow: 1;
+    font-size: 1rem;
+    justify-content: flex-start;
+    line-height: 1rem;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 figure a {
@@ -903,12 +903,17 @@ table {
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
+    margin-bottom: 1rem;
 }
 
-table.border tr > td {
-    border: 1px solid var(--fg-less);
-    padding: 0.5rem;
+th {
+    font-weight: normal;
 }
+
+td {
+    vertical-align: top;
+}
+
 
 table tr {
     line-height: 2rem;
@@ -927,13 +932,18 @@ table .num {
     text-align: right;
 }
 
-th {
-    font-weight: normal;
+table.border tr > td {
+    border: 1px solid var(--fg-less)!important;
+    padding: 0.5rem;
 }
 
-td {
-    vertical-align: top;
+table.border tr > th {
+    border: 1px solid var(--fg-less)!important;
+    padding: 0.5rem;
+    color: var(--fg-more);
+    font-family: var(--sans);
 }
+
 
 /* -------------------------------------------------------------------- */
 /* Lede */

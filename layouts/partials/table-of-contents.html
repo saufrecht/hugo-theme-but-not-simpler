@@ -46,7 +46,7 @@ TODO: presumably there's a better way to make it empty upstream? */}}
       {{- end -}}
 
       {{- $extra_prev := sub (len $prev) site.Params.toc_range -}}
-      {{- if gt $extra_prev 0 -}}
+      {{- if gt $extra_prev 1 -}}
           <li>
             … {{- $extra_prev -}}&nbsp;more
           </li>
@@ -70,7 +70,7 @@ TODO: presumably there's a better way to make it empty upstream? */}}
       {{- end -}}
 
       {{- $extra_next := sub (len $next) site.Params.toc_range -}}
-      {{- if gt $extra_next 0 -}}
+      {{- if gt $extra_next 1 -}}
           <li>
             {{- $extra_next -}}&nbsp;more …
           </li>
