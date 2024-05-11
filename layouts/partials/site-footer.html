@@ -1,37 +1,39 @@
-<nav class="foot-nav">
-  <span>
+<footer>
+  <ul>
+  <li>
     {{- if ne .Page.Title "About" -}}
     <a href="/about">About</a>
     {{- else -}}
     About
     {{- end -}}
-  </span>
-  <span>
+  </li>
+  <li>
     {{- if ne .Page.Title "Categories" -}}
     <a href="/categories">Index</a>
     {{- else -}}
     Sitemap
     {{- end -}}
-  </span>
-  <span>
+  </li>
+  <li>
     {{- if ne .Page.Title "Privacy" -}}
     <a href="/about/privacy">Privacy</a>
     {{- else -}}
     Privacy
     {{- end -}}
-  </span>
-  <span>
+  </li>
+  <li>
     <a href="/index.xml">RSS: <img class="icon" alt="RSS Feed" src="{{- .Site.Params.rss_icon -}}" /></a>
-  </span>
-  <span class="right">
+  </li>
+  <li class="right">
     {{- with .Site.Params.contact_link -}}
       <a href="{{ . }}">Contact:</a>
     {{- else }}
       Contact
     {{- end -}}
   <a href="mailto:{{- .Site.Params.email -}}"><img class="icon" alt="email" src="{{- .Site.Params.pen_icon -}}" /></a>
-  </span>
-</nav>
+  </li>
+</ul>
+</footer>
 <div class="copyright small">
   {{- partial "copyright" . -}}
 </div>

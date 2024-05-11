@@ -38,7 +38,7 @@ dd {
 body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: 1.6rem;
+  line-height: 1.3rem;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -58,104 +58,10 @@ img {
   display: block;
 }
 
-
 /* Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
 select {
   font: inherit;
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Solarized */
-/*———————————————————————————————————————————————————————————*/
-:root {
-  --lightest:       #fdf6e3; /* Base3  */
-  --light:          #eee8d5; /* Base2  */
-  --dark-lightest:  #93a1a1; /* Base1  */
-  --dark-lighterer: #839496; /* Base0  */
-  --dark-lighter:   #657b83; /* Base00 */
-  --dark-light:     #586e75; /* Base01 */
-  --dark:           #073642; /* Base02 */
-  --darkest:        #002b36; /* Base03 */
-  --yellow:         #b58900;
-  --green:          #859900;
-  --gray:           #e1e1e1;
-  --magenta:        #d33682;
-  --violet:         #6c71c4;
-  --cyan:           #2aa198;
-  --orange:         #cb4b16;
-  --red:            #dc322f;
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Other colors                                              */
-/*———————————————————————————————————————————————————————————*/
-
-:root {
-    --default-link:         #0000ee;
-    --default-link-visited: #551a8b;
-    --light-link:           #535496;
-    --light-link-faint:     #535476;
-    --light-link-visited:   rgba(83, 84, 150, 0.4);
-    --dark-link-faint:      rgba(54, 154, 226, 0.4);
-    --dark-link:            #369be2;
-    --dark-link-visited:    rgba(133, 106, 203, 0.4);
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg:     var(--lightest);         /* body background */
-        --fg:     var(--dark-light);
-        --svgfilter: invert(39%) sepia(24%) saturate(336%) hue-rotate(148deg) brightness(98%) contrast(86%);
-        --fg-more:  var(--dark);
-        --fg-most: var(--darkest);
-        --fg-less: var(--dark-lighter);
-        --fg-link:  var(--light-link-faint);
-        --fg-link-acc:  var(--light-link);
-        --fg-link-visited: var(--light-link-visited);
-        --screen: var(--dark);
-        --body-shadow: 0.1em 0.2em 0.3em rgba(0, 0, 0, 0.3), 0.2em 0.3em 0.3em 0 rgba(0, 0, 0, 0.28);
-        --box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.2), 0.1em 0.2em 0.4em 0 rgba(0, 0, 0, 0.19);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg:      var(--darkest);
-        --fg:      var(--dark-lighter);
-        --svgfilter: invert(64%) sepia(18%) saturate(151%) hue-rotate(131deg) brightness(96%) contrast(89%);
-        --fg-more:   var(--dark-lighterer);
-        --fg-most:  var(--dark-lightest);
-        --fg-less:  var(--dark-light);
-        --fg-link:  var(--dark-link-faint);
-        --fg-link-acc:  var(--dark-link);
-        --fg-link-visited: var(--dark-link-visited);
-        --screen: var(--dark);
-        --body-shadow: none;
-        --box-shadow: 0.2em 0.2em 0.3rem 0.1rem rgba(88, 110, 117, 0.15), -0.1em -0.1em rgba(88, 110, 117, 0.1);
-    }
-}
-
-/*———————————————————————————————————————————————————————————*/
-/* Global variables                                          */
-/*———————————————————————————————————————————————————————————*/
-:root {
-    --serif: 'Lusitana', serif;
-    --sans: 'Palanquin', sans-serif;
-    --mono: 'Lucida Console', Monaco, monospace;
-    --corner: 0.3rem;
-    --small-corner: 0.2rem;
-    --table-border: 1px solid var(--fg-less);
 }

@@ -1,0 +1,166 @@
+/*———————————————————————————————————————————————————————————*/
+/* Fonts                                                     */
+/*———————————————————————————————————————————————————————————*/
+
+@font-face {
+    font-family: 'QuadraatOT';
+    src: url('fonts/QuadraatOT.woff2') format('woff2'),
+         url('fonts/QuadraatOT.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatOT';
+    src: url('fonts/1f717086-8b2b-4a8f-ae95-ecf1bc4b3acb.woff2') format('woff'),
+         url('fonts/78c9b52f-4d1a-44ea-9c6b-d1855e505ce8.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatSansOT';
+    src: url('fonts/QuadraatSansOT.woff') format('woff'),
+         url('fonts/QuadraatSansOT.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'QuadraatSansMonoOT';
+    src: url('fonts/QuadraatSansMonoOT.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+:root {
+    --serif: QuadraatOT, 'Lusitana', serif;
+    --sans: QuadraatSansOT,'Palanquin', sans-serif;
+    --mono: QuadraatSansMonoOT, Lucida Console, Monaco, monospace;
+}
+
+footer, header, h1, h2, h3, h4, h5, h6, nav, table, figcaption, .headnotes, .footnotes, .title, .toc {
+    font-family: var(--sans)
+}
+
+body {
+    font-family: var(--serif);
+}
+
+code, pre, .screenplay, .date, .userinput, .filename, .guilabel {
+    font-family: var(--mono);
+}
+
+
+/*———————————————————————————————————————————————————————————*/
+/* Base Colors (Gruvbox)
+/*———————————————————————————————————————————————————————————*/
+
+:root {
+  --dark:     #1d2021;
+  --dark-0:   #282828;
+  --dark-1:   #3c3836;
+  --dark-2:   #504945;
+  --dark-3:   #665c54;
+  --dark-4:   #7c6f64;
+
+  --light:    #f9f5d7;
+  --light-0:  #fbf1c7;
+  --light-1:  #ebdbb2;
+  --light-2:  #d5c4a1;
+  --light-3:  #bdae93;
+  --light-4:  #a89984;
+
+  --red-bright:    #fb4934;
+  --green-bright:  #b8bb26;
+  --yellow-bright: #fabd2f;
+  --blue-bright:   #83a598;
+  --purple-bright: #d3869b;
+  --aqua-bright:   #8ec07c;
+  --orange-bright: #fe8019;
+
+  --red:    #cc2412;
+  --green:  #98971a;
+  --yellow: #d79921;
+  --blue:   #488588;
+  --purple: #b16286;
+  --aqua:   #689d6a;
+  --orange: #d65d0e;;
+
+  --red-dim:    #9d0086;
+  --green-dim:  #79740e;
+  --yellow-dim: #b57614;
+  --blue-dim:   #076678;
+  --purple-dim: #8f3671;
+  --aqua-dim:   #427b58;
+  --orange-dim: #af3a03;
+
+  --gray-bright: #a89984;
+  --gray:        #928374;
+  --gray-dim:    #7c6f64;
+}
+
+/*———————————————————————————————————————————————————————————*/
+/* Applied Colors                                            */
+/*———————————————————————————————————————————————————————————*/
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-more:      var(--light);
+        --bg:           var(--light-1);
+        --fg:           var(--dark-1);
+        --fg-more:      var(--dark-0);
+        --link:         #0000ee;
+        --link-visited: #551a8b;
+        --link-active:  var(--blue-bright);
+        --link-vis-act: var(--blue);
+        --screen:       var(--dark);
+        --body-shadow:  0.1em 0.2em 0.3em rgba(0, 0, 0, 0.3), 0.2em 0.3em 0.3em 0 rgba(0, 0, 0, 0.28);
+        --box-shadow:   0.1em 0.1em 0.2em rgba(0, 0, 0, 0.2), 0.1em 0.2em 0.4em 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-more:      var(--dark);
+        --bg:           var(--dark-0);
+        --fg:           var(--light-1);
+        --fg-more:      var(--light-0);
+        --link:         #0000ee;
+        --link-visited: #551a8b;
+        --link-active:  var(--blue);
+        --link-vis-act: var(--blue-dark);
+        --screen:       var(--dark-1);
+        --body-shadow:  none;
+        --box-shadow:   0.2em 0.2em 0.3rem 0.1rem rgba(88, 110, 117, 0.15), -0.1em -0.1em rgba(88, 110, 117, 0.1);
+    }
+}
+
+/*———————————————————————————————————————————————————————————*/
+/* Global settings and variables                             */
+/*———————————————————————————————————————————————————————————*/
+:root {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-size: 1.2em;
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures contextual historical-ligatures;
+    --corner: 0.3rem;
+    --small-corner: 0.2rem;
+    --table-border: 1px solid var(--fg-less);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

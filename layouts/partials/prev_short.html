@@ -1,8 +1,0 @@
-{{- with .Scratch.Get "prev_page" -}}
-  <nav class="prev">
-    {{ range . }}
-      <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}" class="no-under arrow">⬅</a>
-      <a href="{{- .RelPermalink -}}" title="Previous: {{ .Title }}">Prev</a>
-    {{ end }}
-  </nav>
-{{- end -}}

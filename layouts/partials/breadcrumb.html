@@ -1,20 +1,9 @@
 <nav>
-  {{ partial "homecrumb" . }}
-  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+  {{- if .Site.Params.home_crumb -}}
+    <a href="/"><img class="icon" src="{{- .Site.Params.home_crumb -}}" title="{{- .Site.Title -}}"></a>
+  {{- end -}}&nbsp;
+  <a href="/">Home</a>
+  <h1 id="page-title">
+    <a href="{{ .Permalink }}">{{- partial "drafttitle" . -}}</a>
+  </h1>
 </nav>
-
-{{- define "breadcrumbnav" -}}
-  {{- if .p1.Parent -}}
-    {{- template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p1 )  -}}
-  {{- end -}}
-
-  {{- if (not (eq .p1 .p2)) -}}
-    <a href="{{ .p1.RelPermalink }}">{{- partial "shorttitle" .p1 -}}</a><a href="{{ .p1.RelPermalink }}" span class="no-under">&nbsp;➟</a>&nbsp;&nbsp;
-  {{- end -}}
-{{- end -}}
-
-<h1 id="page-title">
-  <a href="{{ .Permalink }}">{{- partial "drafttitle" . -}}</a>
-</h1>
-
-{{- /* TODO: use ⬎ for the last arrow */ -}}

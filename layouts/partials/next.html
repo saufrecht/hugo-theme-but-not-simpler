@@ -1,8 +1,0 @@
-{{- with .Scratch.Get "next_page" -}}
-  <nav class="next">
-    {{ range . }}
-      <a href="{{- .RelPermalink -}}" title="Next: {{ .Title }}">{{ partial "shorttitle" . -}}</a>
-      <a href="{{- .RelPermalink -}}" title="Next: {{ .Title }}" class="no-under arrow">➡</a>
-    {{ end }}
-  </nav>
-{{- end -}}

@@ -1,5 +1,3 @@
-{{- partial "set_nav_variables" . -}}
-<!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   <head>
     <meta charset="utf-8">
@@ -10,29 +8,29 @@
   </head>
   <body>
     <header>
-      <aside class="headnotes">{{- block "header_headnotes" . -}}{{- partial "prev_short" . -}}{{- end -}}</aside>
+      <aside class="headnotes">{{- block "header_headnotes" . -}}{{ partial "breadcrumb" . }}{{- end -}}</aside>
 
-      <main>{{- block "header_main" . -}}{{ partial "breadcrumb" . }}{{- end -}}</main>
+      <main>{{- block "header_main" . -}}{{- end -}}</main>
 
-      <aside class="footnotes">{{- block "header_footnotes" . -}}{{- partial "next_short" . -}}{{- partial "byline" . -}}{{- end -}}</aside>
+      <aside class="footnotes">{{- block "header_footnotes" . -}}{{- end -}}</aside>
 
     </header>
     <main>
 
-        <aside class="headnotes">{{- block "main_headnotes" . -}}{{- partial "table-of-contents" . -}}{{- end -}}</aside>
+        <aside class="headnotes">{{- block "main_headnotes" . -}}{{- partial "byline" . -}}{{ partial "category-tags" . }}{{- end -}}</aside>
 
         <main>{{- block "main" . -}}{{- end -}}</main>
 
-        <aside class="footnotes">{{- block "main_footnotes" . -}}{{ partial "category-tags" . }}{{- end -}}</aside>
+        <aside class="footnotes">{{- block "main_footnotes" . -}}{{- end -}}</aside>
 
     </main>
     <footer>
 
-      <aside class="headnotes">{{- block "footer_headnotes" . -}}{{- partial "prev" . -}}{{- end -}}</aside>
+      <aside class="headnotes">{{- block "footer_headnotes" . -}}{{- end -}}</aside>
 
       <main>{{- block "footer_main" . -}}{{- partialCached "site-footer" . -}}{{- end -}}</main>
 
-      <aside class="footnotes">{{- block "footer_footnotes" . -}}{{- partial "next" . -}}{{- end -}}</aside>
+      <aside class="footnotes">{{- block "footer_footnotes" . -}}{{- end -}}</aside>
 
     </footer>
     </main>
